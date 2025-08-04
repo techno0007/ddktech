@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>DDK TECH - Custom Business Apps for Bengali Businesses</title>
+<meta name="description" content="Get your own custom business app built by DDK TECH. Perfect for Bengali businesses - manage customers, payments, staff, and more!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#1E3D59',
+secondary: '#FF6E40'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+},
+fontFamily: {
+'poppins': ['Poppins', 'sans-serif'],
+'inter': ['Inter', 'sans-serif']
+}
+}
+}
+}
+</script>
+<style>
+:where([class^="ri-"])::before {
+content: "\f3c2";
+}
+.fade-in {
+opacity: 0;
+transform: translateY(30px);
+transition: all 0.6s ease-out;
+}
+.fade-in.visible {
+opacity: 1;
+transform: translateY(0);
+}
+@media (max-width: 1024px) {
+.hero-bg h1 {
+font-size: 2.5rem;
+line-height: 1.2;
+}
+.hero-bg p {
+font-size: 1.25rem;
+}
+section {
+padding: 4rem 1.5rem;
+}
+}
+@media (max-width: 768px) {
+.hero-bg h1 {
+font-size: 2rem;
+}
+.hero-bg p {
+font-size: 1.125rem;
+}
+section {
+padding: 3rem 1rem !important;
+}
+.grid {
+gap: 1.5rem !important;
+}
+}
+@media (max-width: 640px) {
+.hero-bg {
+min-height: 100vh;
+padding: 6rem 1rem 2rem;
+}
+.feature-card, .pricing-card {
+padding: 1.5rem !important;
+}
+h2 {
+font-size: 2rem !important;
+}
+.flex.flex-col.sm\\:flex-row {
+width: 100%;
+}
+.flex.flex-col.sm\\:flex-row > a {
+width: 100%;
+justify-content: center;
+}
+}
+.hero-bg {
+position: relative;
+overflow: hidden;
+}
+.hero-bg::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0, 0, 0, 0.5);
+z-index: 1;
+}
+.hero-images {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+display: flex;
+animation: slideImages 30s linear infinite;
+}
+.hero-image {
+min-width: 100%;
+height: 100%;
+background-size: cover;
+background-position: center;
+}
+@keyframes slideImages {
+0% { transform: translateX(0); }
+100% { transform: translateX(-300%); }
+}
+.feature-card {
+transition: all 0.3s ease;
+}
+.feature-card:hover {
+transform: translateY(-8px);
+box-shadow: 0 20px 40px rgba(30, 61, 89, 0.15);
+}
+.pricing-card {
+transition: all 0.3s ease;
+}
+.pricing-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 25px 50px rgba(30, 61, 89, 0.2);
+}
+.contact-form input,
+.contact-form textarea {
+transition: all 0.3s ease;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+outline: none;
+border-color: #FF6E40;
+box-shadow: 0 0 0 3px rgba(255, 110, 64, 0.1);
+}
+.btn-primary {
+background: linear-gradient(135deg, #FF6E40, #FF8A65);
+transition: all 0.3s ease;
+}
+.btn-primary:hover {
+background: linear-gradient(135deg, #FF5722, #FF6E40);
+transform: translateY(-2px);
+box-shadow: 0 8px 25px rgba(255, 110, 64, 0.3);
+}
+.btn-secondary {
+transition: all 0.3s ease;
+}
+.btn-secondary:hover {
+background-color: #1E3D59;
+color: white;
+transform: translateY(-2px);
+}
+html {
+scroll-behavior: smooth;
+}
+.navbar {
+transition: all 0.3s ease;
+}
+.navbar.scrolled {
+background: rgba(30, 61, 89, 0.95);
+backdrop-filter: blur(8px);
+}
+.whatsapp-btn {
+background-color: #25D366;
+}
+.whatsapp-btn:hover {
+background-color: #128C7E;
+transform: translateY(-2px);
+box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+}
+</style>
+</head>
+<body class="font-inter">
+<nav class="navbar fixed top-0 left-0 right-0 z-50 px-6 py-3 bg-gradient-to-r from-primary to-primary/90 backdrop-blur-sm">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center space-x-4">
+<img src="https://static.readdy.ai/image/d796b26d827c384c72e497f1ad3d22b7/daaa05eea1f928623c906b3bccf5b6cc.png" alt="DDK TECH Logo" class="h-24">
+<span class="text-4xl font-bold text-white">DDK TECH</span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a href="#home" class="text-white/80 hover:text-white transition-colors font-medium">Home</a>
+<a href="#features" class="text-white/80 hover:text-white transition-colors font-medium">Features</a>
+<a href="#pricing" class="text-white/80 hover:text-white transition-colors font-medium">Pricing</a>
+<a href="#about" class="text-white/80 hover:text-white transition-colors font-medium">About</a>
+<a href="#contact" class="text-white/80 hover:text-white transition-colors font-medium">Contact</a>
+<a href="https://wa.me/918820746227" class="bg-white text-primary hover:bg-white/90 px-6 py-2 !rounded-button font-medium whitespace-nowrap transition-all duration-300">
+<i class="ri-whatsapp-line mr-2"></i>WhatsApp
+</a>
+</div>
+<button class="md:hidden text-white text-2xl" id="mobile-menu-btn">
+<i class="ri-menu-line"></i>
+</button>
+</div>
+<div class="md:hidden mt-4 hidden" id="mobile-menu">
+<div class="flex flex-col space-y-3 pb-4">
+<a href="#home" class="text-white/80 hover:text-white transition-colors font-medium">Home</a>
+<a href="#features" class="text-white/80 hover:text-white transition-colors font-medium">Features</a>
+<a href="#pricing" class="text-white/80 hover:text-white transition-colors font-medium">Pricing</a>
+<a href="#about" class="text-white/80 hover:text-white transition-colors font-medium">About</a>
+<a href="#contact" class="text-white/80 hover:text-white transition-colors font-medium">Contact</a>
+<a href="https://wa.me/918820746227" class="bg-white text-primary hover:bg-white/90 px-6 py-2 !rounded-button font-medium whitespace-nowrap inline-flex items-center justify-center transition-all duration-300">
+<i class="ri-whatsapp-line mr-2"></i>WhatsApp
+</a>
+</div>
+</div>
+</nav>
+<section id="home" class="hero-bg min-h-screen flex items-center relative">
+<div class="hero-images">
+<div class="hero-image" style="background-image: url('https://readdy.ai/api/search-image?query=Modern%20Indian%20gym%20interior%20with%20state-of-the-art%20equipment%2C%20energetic%20atmosphere%2C%20people%20working%20out%2C%20professional%20trainers%2C%20warm%20lighting%2C%20high-end%20photography&width=1920&height=1080&seq=gym-001&orientation=landscape');"></div>
+<div class="hero-image" style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20Bengali%20photographer%20in%20studio%2C%20capturing%20portraits%2C%20modern%20photography%20equipment%2C%20artistic%20lighting%20setup%2C%20elegant%20studio%20interior&width=1920&height=1080&seq=photo-002&orientation=landscape');"></div>
+<div class="hero-image" style="background-image: url('https://readdy.ai/api/search-image?query=Modern%20digital%20printing%20press%20in%20Kolkata%2C%20large%20format%20printers%2C%20workers%20operating%20machines%2C%20vibrant%20prints%20being%20produced%2C%20professional%20work%20environment&width=1920&height=1080&seq=print-003&orientation=landscape');"></div>
+<div class="hero-image" style="background-image: url('https://readdy.ai/api/search-image?query=Modern%20Indian%20pharmacy%20interior%2C%20well-organized%20medicine%20shelves%2C%20pharmacist%20helping%20customer%2C%20clean%20and%20professional%20environment%2C%20bright%20lighting&width=1920&height=1080&seq=pharm-004&orientation=landscape');"></div>
+</div>
+<div class="relative z-10 w-full px-6">
+<div class="max-w-7xl mx-auto">
+<div class="max-w-4xl">
+<h1 class="text-5xl md:text-6xl font-bold text-white mb-6 font-poppins leading-tight">
+Get Your Own Business App – 100% Custom Built by
+<span class="text-secondary">DDK TECH</span>
+</h1>
+<p class="text-xl md:text-2xl text-gray-200 mb-8 font-inter leading-relaxed">
+Perfect for Bengali businesses: Manage customers, payments, staff, dues, memberships, and more!
+</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="https://wa.me/918820746227" class="whatsapp-btn text-white px-8 py-4 !rounded-button font-semibold text-lg whitespace-nowrap inline-flex items-center justify-center transition-all duration-300">
+<i class="ri-whatsapp-line mr-3 text-xl"></i>Chat on WhatsApp
+</a>
+<a href="mailto:ddktech.manager@gmail.com" class="btn-secondary bg-white text-primary border-2 border-white px-8 py-4 !rounded-button font-semibold text-lg whitespace-nowrap inline-flex items-center justify-center">
+<i class="ri-mail-line mr-3 text-xl"></i>Request a Free Demo
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+<i class="ri-arrow-down-line text-2xl"></i>
+</div>
+</section>
+<section id="features" class="py-20 bg-gray-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6">
+<div class="text-center mb-12 sm:mb-16 fade-in">
+<h2 class="text-4xl md:text-5xl font-bold text-primary mb-6 font-poppins">
+Powerful Features for Your Business
+</h2>
+<p class="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
+Everything you need to manage and grow your Bengali business with custom-built solutions
+</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="feature-card bg-white p-8 rounded-2xl shadow-lg fade-in">
+<div class="w-16 h-16 bg-secondary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+<i class="ri-user-settings-line text-secondary text-2xl"></i>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-4 font-poppins">Customer Management</h3>
+<p class="text-gray-600 font-inter">Keep track of all your customers, their details, purchase history, and preferences in one organized system.</p>
+</div>
+<div class="feature-card bg-white p-8 rounded-2xl shadow-lg fade-in">
+<div class="w-16 h-16 bg-secondary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+<i class="ri-money-rupee-circle-line text-secondary text-2xl"></i>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-4 font-poppins">Payment Tracking</h3>
+<p class="text-gray-600 font-inter">Monitor payments, track dues, send automated reminders, and maintain complete financial records.</p>
+</div>
+<div class="feature-card bg-white p-8 rounded-2xl shadow-lg fade-in">
+<div class="w-16 h-16 bg-secondary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+<i class="ri-team-line text-secondary text-2xl"></i>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-4 font-poppins">Membership & Attendance</h3>
+<p class="text-gray-600 font-inter">Manage memberships, track attendance, and maintain detailed records of member activities.</p>
+</div>
+<div class="feature-card bg-white p-8 rounded-2xl shadow-lg fade-in">
+<div class="w-16 h-16 bg-secondary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+<i class="ri-group-line text-secondary text-2xl"></i>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-4 font-poppins">Staff Management</h3>
+<p class="text-gray-600 font-inter">Handle staff payments, salary management, work schedules, and performance tracking efficiently.</p>
+</div>
+<div class="feature-card bg-white p-8 rounded-2xl shadow-lg fade-in">
+<div class="w-16 h-16 bg-secondary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+<i class="ri-file-text-line text-secondary text-2xl"></i>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-4 font-poppins">Invoice Generator</h3>
+<p class="text-gray-600 font-inter">Create professional invoices, generate PDF exports, and maintain organized billing records.</p>
+</div>
+<div class="feature-card bg-white p-8 rounded-2xl shadow-lg fade-in">
+<div class="w-16 h-16 bg-secondary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+<i class="ri-bar-chart-box-line text-secondary text-2xl"></i>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-4 font-poppins">Reports & Analytics</h3>
+<p class="text-gray-600 font-inter">Get detailed insights with comprehensive reports and analytics to make informed business decisions.</p>
+</div>
+<div class="feature-card bg-white p-8 rounded-2xl shadow-lg fade-in md:col-span-2 lg:col-span-1">
+<div class="w-16 h-16 bg-secondary bg-opacity-10 rounded-xl flex items-center justify-center mb-6">
+<i class="ri-settings-3-line text-secondary text-2xl"></i>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-4 font-poppins">Fully Customizable</h3>
+<p class="text-gray-600 font-inter">Every module can be customized to fit your specific business needs and workflow requirements.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="pricing" class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6">
+<div class="text-center mb-12 sm:mb-16 fade-in">
+<h2 class="text-4xl md:text-5xl font-bold text-primary mb-6 font-poppins">
+Simple, Transparent Pricing
+</h2>
+<p class="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
+No hidden fees, no monthly subscriptions. Pay once and own your custom business app forever.
+</p>
+</div>
+<div class="max-w-lg mx-auto">
+<div class="pricing-card bg-white border-2 border-gray-100 rounded-3xl p-10 shadow-xl fade-in">
+<div class="text-center">
+<div class="inline-block bg-secondary bg-opacity-10 text-secondary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+Most Popular
+</div>
+<h3 class="text-3xl font-bold text-primary mb-4 font-poppins">Starter Plan</h3>
+<div class="mb-6">
+<span class="text-5xl font-bold text-primary">₹199</span>
+<span class="text-gray-500 ml-2">one-time installation</span>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex items-center justify-center text-gray-600">
+<i class="ri-check-line text-green-500 mr-3 text-xl"></i>
+<span>Complete custom app installation</span>
+</div>
+<div class="flex items-center justify-center text-gray-600">
+<i class="ri-check-line text-green-500 mr-3 text-xl"></i>
+<span>All core features included</span>
+</div>
+<div class="flex items-center justify-center text-gray-600">
+<i class="ri-check-line text-green-500 mr-3 text-xl"></i>
+<span>Basic customization</span>
+</div>
+<div class="flex items-center justify-center text-gray-600">
+<i class="ri-check-line text-green-500 mr-3 text-xl"></i>
+<span>Initial setup & training</span>
+</div>
+</div>
+<div class="bg-gray-50 rounded-2xl p-6 mb-8">
+<h4 class="font-bold text-primary mb-3">Maintenance & Support</h4>
+<div class="text-2xl font-bold text-primary mb-2">₹199 per 6 months</div>
+<p class="text-sm text-gray-600">Updates, bug fixes, and technical support</p>
+</div>
+<div class="bg-primary bg-opacity-5 rounded-2xl p-6 mb-8">
+<h4 class="font-bold text-primary mb-3">Custom Features</h4>
+<div class="text-lg font-semibold text-primary mb-2">Get a Quote</div>
+<p class="text-sm text-gray-600">Additional modules and advanced customizations</p>
+</div>
+<a href="https://wa.me/918820746227" class="btn-primary w-full text-white px-8 py-4 !rounded-button font-semibold text-lg whitespace-nowrap inline-flex items-center justify-center">
+<i class="ri-whatsapp-line mr-3 text-xl"></i>Get Started Now
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="about" class="py-20 bg-gray-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+<div class="fade-in">
+<h2 class="text-4xl md:text-5xl font-bold text-primary mb-6 font-poppins">
+About DDK TECH
+</h2>
+<p class="text-xl text-gray-600 mb-6 font-inter leading-relaxed">
+We are a West Bengal-based technology company dedicated to empowering local Bengali businesses with custom software solutions. Our mission is to help small and medium businesses get their own personalized applications without the burden of expensive monthly subscriptions.
+</p>
+<p class="text-lg text-gray-600 mb-8 font-inter leading-relaxed">
+<strong class="text-primary">We work closely with you</strong> to understand your unique business needs and deliver exactly what your business requires. From customer management to payment tracking, we build solutions that grow with your business.
+</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="mailto:ddktech.manager@gmail.com" class="btn-primary text-white px-8 py-3 !rounded-button font-semibold whitespace-nowrap inline-flex items-center justify-center">
+<i class="ri-mail-line mr-3"></i>Get Free Consultation
+</a>
+<a href="https://wa.me/918820746227" class="btn-secondary bg-transparent text-primary border-2 border-primary px-8 py-3 !rounded-button font-semibold whitespace-nowrap inline-flex items-center justify-center">
+<i class="ri-phone-line mr-3"></i>Call Us Today
+</a>
+</div>
+</div>
+<div class="fade-in">
+<img src="https://readdy.ai/api/search-image?query=Professional%20Bengali%20business%20team%20working%20on%20custom%20software%20development%2C%20modern%20office%20environment%20in%20West%20Bengal%2C%20developers%20collaborating%20on%20business%20applications%2C%20technology%20workspace%20with%20computers%20and%20planning%20boards%2C%20warm%20and%20welcoming%20atmosphere&width=600&height=400&seq=about-img-001&orientation=landscape"
+alt="DDK TECH Team"
+class="w-full h-96 object-cover object-top rounded-2xl shadow-xl">
+</div>
+</div>
+</div>
+</section>
+<section id="contact" class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6">
+<div class="text-center mb-12 sm:mb-16 fade-in">
+<h2 class="text-4xl md:text-5xl font-bold text-primary mb-6 font-poppins">
+Get In Touch
+</h2>
+<p class="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
+Ready to transform your business with a custom app? Contact us today for a free consultation.
+</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div class="fade-in">
+<h3 class="text-2xl font-bold text-primary mb-8 font-poppins">Contact Information</h3>
+<div class="space-y-6">
+<div class="flex items-center">
+<div class="w-12 h-12 bg-secondary bg-opacity-10 rounded-lg flex items-center justify-center mr-4">
+<i class="ri-mail-line text-secondary text-xl"></i>
+</div>
+<div>
+<h4 class="font-semibold text-primary">Email</h4>
+<a href="mailto:ddktech.manager@gmail.com" class="text-gray-600 hover:text-secondary transition-colors">
+ddktech.manager@gmail.com
+</a>
+</div>
+</div>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-secondary bg-opacity-10 rounded-lg flex items-center justify-center mr-4">
+<i class="ri-whatsapp-line text-secondary text-xl"></i>
+</div>
+<div>
+<h4 class="font-semibold text-primary">WhatsApp</h4>
+<a href="https://wa.me/918820746227" class="text-gray-600 hover:text-secondary transition-colors">
++91 8820746227
+</a>
+</div>
+</div>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-secondary bg-opacity-10 rounded-lg flex items-center justify-center mr-4">
+<i class="ri-map-pin-line text-secondary text-xl"></i>
+</div>
+<div>
+<h4 class="font-semibold text-primary">Location</h4>
+<p class="text-gray-600">West Bengal, India</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fade-in">
+<form class="contact-form space-y-6">
+<div>
+<input type="text"
+placeholder="Your Name"
+class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-700 bg-white">
+</div>
+<div>
+<input type="tel"
+placeholder="Phone Number"
+class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-700 bg-white">
+</div>
+<div>
+<textarea placeholder="Your Message"
+rows="5"
+class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-700 bg-white resize-none"></textarea>
+</div>
+<button type="submit"
+class="btn-primary w-full text-white px-8 py-4 !rounded-button font-semibold text-lg whitespace-nowrap">
+<i class="ri-send-plane-line mr-3"></i>Send Message
+</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-primary text-white py-8 sm:py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div>
+<div class="flex items-center space-x-3 mb-4">
+<img src="https://static.readdy.ai/image/d796b26d827c384c72e497f1ad3d22b7/daaa05eea1f928623c906b3bccf5b6cc.png" alt="DDK TECH Logo" class="h-16">
+<span class="text-2xl font-bold text-white">DDK TECH</span>
+</div>
+<p class="text-gray-300 font-inter">
+Custom business applications for Bengali businesses. Empowering local entrepreneurs with technology solutions.
+</p>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4 font-poppins">Quick Links</h4>
+<div class="space-y-2">
+<a href="#home" class="block text-gray-300 hover:text-secondary transition-colors">Home</a>
+<a href="#features" class="block text-gray-300 hover:text-secondary transition-colors">Features</a>
+<a href="#pricing" class="block text-gray-300 hover:text-secondary transition-colors">Pricing</a>
+<a href="#about" class="block text-gray-300 hover:text-secondary transition-colors">About</a>
+<a href="#contact" class="block text-gray-300 hover:text-secondary transition-colors">Contact</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4 font-poppins">Contact Info</h4>
+<div class="space-y-2">
+<p class="text-gray-300 font-inter">ddktech.manager@gmail.com</p>
+<p class="text-gray-300 font-inter">+91 8820746227</p>
+<p class="text-gray-300 font-inter">West Bengal, India</p>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-600 mt-8 pt-8 text-center">
+<p class="text-gray-300 font-inter">
+© 2025 DDK TECH. All rights reserved. Built with ❤️ for Bengali businesses.
+</p>
+</div>
+</div>
+</footer>
+<script id="scroll-animations">
+document.addEventListener('DOMContentLoaded', function() {
+const observerOptions = {
+threshold: 0.1,
+rootMargin: '0px 0px -50px 0px'
+};
+const observer = new IntersectionObserver(function(entries) {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
+}, observerOptions);
+document.querySelectorAll('.fade-in').forEach(el => {
+observer.observe(el);
+});
+});
+</script>
+<script id="navbar-scroll">
+document.addEventListener('DOMContentLoaded', function() {
+const navbar = document.querySelector('.navbar');
+const navLinks = document.querySelectorAll('a[href^="#"]');
+window.addEventListener('scroll', function() {
+if (window.scrollY > 100) {
+navbar.classList.add('scrolled');
+} else {
+navbar.classList.remove('scrolled');
+}
+});
+navLinks.forEach(link => {
+link.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+const targetSection = document.querySelector(targetId);
+const navbarHeight = navbar.offsetHeight;
+if (targetSection) {
+const targetPosition = targetSection.offsetTop - navbarHeight;
+window.scrollTo({
+top: targetPosition,
+behavior: 'smooth'
+});
+}
+});
+});
+});
+</script>
+<script id="mobile-menu">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuBtn.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+const icon = mobileMenuBtn.querySelector('i');
+icon.classList.toggle('ri-menu-line');
+icon.classList.toggle('ri-close-line');
+});
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+link.addEventListener('click', function() {
+mobileMenu.classList.add('hidden');
+const icon = mobileMenuBtn.querySelector('i');
+icon.classList.add('ri-menu-line');
+icon.classList.remove('ri-close-line');
+});
+});
+});
+</script>
+<script id="contact-form">
+document.addEventListener('DOMContentLoaded', function() {
+const contactForm = document.querySelector('.contact-form');
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+const formData = new FormData(contactForm);
+const name = contactForm.querySelector('input[type="text"]').value;
+const phone = contactForm.querySelector('input[type="tel"]').value;
+const message = contactForm.querySelector('textarea').value;
+if (name && phone && message) {
+const whatsappMessage = `Hi DDK TECH! I'm interested in your custom business app.\n\nName: ${name}\nPhone: ${phone}\nMessage: ${message}`;
+const whatsappUrl = `https://wa.me/918820746227?text=${encodeURIComponent(whatsappMessage)}`;
+window.open(whatsappUrl, '_blank');
+contactForm.reset();
+alert('Thank you! Your message has been prepared for WhatsApp. Please send it to complete your inquiry.');
+} else {
+alert('Please fill in all fields before submitting.');
+}
+});
+});
+</script>
+</body>
+</html>

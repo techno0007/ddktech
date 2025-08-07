@@ -1,0 +1,27 @@
+{
+  "name": "DDK TECH - Custom Business Apps",
+  "short_name": "DDK TECH",
+  "description": "Custom business applications for Bengali businesses",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#722F37",
+  "theme_color": "#722F37",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://static.readdy.ai/image/d796b26d827c384c72e497f1ad3d22b7/daaa05eea1f928623c906b3bccf5b6cc.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://static.readdy.ai/image/d796b26d827c384c72e497f1ad3d22b7/daaa05eea1f928623c906b3bccf5b6cc.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "en",
+  "dir": "ltr"
+}

@@ -1,0 +1,62 @@
+{
+    "production": {
+        "app_function": "lambda_app.app",
+        "aws_region": "us-east-1",
+        "profile_name": "default",
+        "project_name": "ddktech-chatbot",
+        "runtime": "python3.11",
+        "s3_bucket": "ddktech-chatbot-lambda-deployments",
+        "memory_size": 512,
+        "timeout_seconds": 30,
+        "environment_variables": {
+            "SESSION_SECRET": "your-session-secret-here"
+        },
+        "cors": true,
+        "cors_origin": "*",
+        "binary_support": false,
+        "keep_warm": false,
+        "exclude": [
+            "*.pyc",
+            "__pycache__/*",
+            ".git/*",
+            "*.md",
+            "tests/*",
+            "venv/*",
+            ".venv/*",
+            "node_modules/*"
+        ],
+        "tags": {
+            "Project": "DDK TECH Chatbot",
+            "Environment": "Production"
+        }
+    },
+    "dev": {
+        "app_function": "lambda_app.app", 
+        "aws_region": "us-east-1",
+        "profile_name": "default",
+        "project_name": "ddktech-chatbot-dev",
+        "runtime": "python3.11",
+        "s3_bucket": "ddktech-chatbot-lambda-deployments-dev",
+        "memory_size": 256,
+        "timeout_seconds": 30,
+        "debug": true,
+        "environment_variables": {
+            "SESSION_SECRET": "dev-session-secret"
+        },
+        "cors": true,
+        "cors_origin": "*",
+        "exclude": [
+            "*.pyc",
+            "__pycache__/*",
+            ".git/*",
+            "*.md",
+            "tests/*",
+            "venv/*",
+            ".venv/*"
+        ],
+        "tags": {
+            "Project": "DDK TECH Chatbot",
+            "Environment": "Development"
+        }
+    }
+}

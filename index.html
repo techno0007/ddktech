@@ -781,187 +781,428 @@ backdrop-filter: blur(8px);
 .lang-bn .en-text { display: none; }
 .lang-bn .bn-text { display: inline; }
 
-/* DDK-i Chatbot Styles */
+/* DDK-i Modern Chatbot Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Modern Chat Button */
 .chat-button {
     position: fixed;
     bottom: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+    right: 30px;
+    width: auto;
+    min-width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
-    border-radius: 50px;
-    padding: 16px 24px;
     cursor: pointer;
-    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.3);
+    font-size: 28px;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    font-size: 16px;
-    z-index: 1000;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(10px);
-}
-
-.chat-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(99, 102, 241, 0.4);
-    background: linear-gradient(135deg, #5B62E6, #7C3AED);
-}
-
-.chat-button i {
-    font-size: 20px;
-    animation: pulse 2s infinite;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 16px;
+    white-space: nowrap;
 }
 
 .chat-button-text {
-    font-family: 'Inter', sans-serif;
-    letter-spacing: 0.5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
 }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+.chat-button-ddk {
+    color: white;
+    font-weight: 700;
+}
+
+.chat-button-accent {
+    font-family: 'Brush Script MT', cursive;
+    font-style: italic;
+    color: #fbbf24;
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+    margin-left: 2px;
+}
+
+.chat-button:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.6);
+}
+
+.chat-button:active {
+    transform: scale(0.95);
 }
 
 /* Chat Window */
 .chat-window {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 400px;
-    height: 600px;
+    bottom: 80px;
+    right: 30px;
+    width: 380px;
+    height: 580px;
     background: white;
-    border-radius: 20px;
+    border-radius: 24px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-    display: flex;
+    display: none;
     flex-direction: column;
-    z-index: 1001;
-    transform: translateY(100%) scale(0.9);
-    opacity: 0;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(20px);
+    animation: slideInUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.chat-window.open {
-    transform: translateY(0) scale(1);
-    opacity: 1;
+.chat-window.active {
+    display: flex;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 /* Chat Header */
 .chat-header {
-    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 20px;
+    padding: 24px 28px 24px 24px;
+    border-radius: 24px 24px 0 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 80px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border-radius: 20px 20px 0 0;
 }
 
-.chat-header-info {
+.chat-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 40px;
+    padding-right: 4px;
+}
+
+.bot-title-section {
     display: flex;
     align-items: center;
     gap: 12px;
+    flex-shrink: 0;
+    margin-right: 20px;
 }
 
-.bot-avatar {
-    width: 45px;
-    height: 45px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
+.bot-icon {
+    font-size: 32px;
+    color: #fbbf24;
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+    animation: botPulse 2s infinite;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    width: 40px;
+    height: 40px;
 }
 
-.bot-info h3 {
-    margin: 0;
-    font-size: 18px;
+@keyframes botPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.bot-title {
+    font-size: 28px;
     font-weight: 700;
-    font-family: 'Inter', sans-serif;
-    letter-spacing: 0.5px;
+    color: white;
+    text-align: left;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    white-space: nowrap;
+}
+
+.bot-title-accent {
+    font-family: 'Brush Script MT', cursive;
+    font-style: italic;
+    color: #fbbf24;
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+    margin-left: 2px;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+    margin-left: auto;
 }
 
 .bot-status {
+    font-size: 12px;
+    opacity: 0.8;
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    opacity: 0.9;
+    gap: 8px;
+    white-space: nowrap;
+    margin-right: 8px;
 }
 
 .status-dot {
     width: 8px;
     height: 8px;
-    background: #10B981;
+    background: #4ade80;
     border-radius: 50%;
-    animation: statusPulse 2s infinite;
+    animation: pulse 2s infinite;
+    flex-shrink: 0;
 }
 
-@keyframes statusPulse {
+@keyframes pulse {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.5; }
 }
 
-.chat-controls {
-    display: flex;
-    gap: 8px;
-}
-
-.lang-toggle, .minimize-btn {
+.language-toggle {
     background: rgba(255, 255, 255, 0.2);
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
-    padding: 8px 12px;
-    border-radius: 8px;
+    padding: 4px 8px;
+    border-radius: 16px;
+    font-size: 10px;
     cursor: pointer;
-    font-size: 12px;
-    font-weight: 600;
-    transition: all 0.2s ease;
-    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
-.lang-toggle:hover, .minimize-btn:hover {
+.language-toggle:hover {
     background: rgba(255, 255, 255, 0.3);
     transform: translateY(-1px);
 }
 
-/* Chat Messages */
-.chat-messages {
-    flex: 1;
-    overflow-y: auto;
+.close-button {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-right: 0;
+    position: relative;
+    z-index: 2;
+    margin-right: 4px;
+}
+
+.close-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* Client Information Styling - Full Width */
+.client-info {
+    background: white;
+    border-radius: 16px;
     padding: 20px;
+    margin: 8px 0;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow: visible;
+    min-width: 100%;
+}
+
+.client-info h4 {
+    color: #1f2937;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+.client-info-grid {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    background: linear-gradient(to bottom, #F8FAFC, #FFFFFF);
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
 }
 
-.chat-messages::-webkit-scrollbar {
-    width: 6px;
+.client-info-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f5f9;
+    width: 100%;
+    min-height: 50px;
 }
 
-.chat-messages::-webkit-scrollbar-track {
-    background: transparent;
+.client-info-item:last-child {
+    border-bottom: none;
 }
 
-.chat-messages::-webkit-scrollbar-thumb {
-    background: #CBD5E1;
-    border-radius: 3px;
+.client-info-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #374151;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 100px;
+    flex-shrink: 0;
+    background: #f8fafc;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.client-info-value {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1f2937;
+    padding: 10px 16px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border: 2px solid #e2e8f0;
+    flex: 1;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    word-break: normal;
+    white-space: normal;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow-wrap: break-word;
+    line-height: 1.4;
+    min-width: 0;
+}
+
+.client-info-value.empty {
+    color: #94a3b8;
+    font-style: italic;
+}
+
+.client-info-value.status-active {
+    background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+    color: #166534;
+    border-color: #86efac;
+}
+
+.client-info-value.status-pending {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    color: #92400e;
+    border-color: #fcd34d;
+}
+
+.client-info-value.status-completed {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    color: #1e40af;
+    border-color: #93c5fd;
+}
+
+.client-info-value.mobile-number {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    color: #92400e;
+    border-color: #fcd34d;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.5px;
+}
+
+.client-info-value.mobile-number:hover {
+    background: linear-gradient(135deg, #fde68a 0%, #fbbf24 100%);
+    transform: scale(1.02);
+    transition: all 0.2s ease;
+}
+
+/* Chat Messages - Full Width */
+.chat-messages {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #fafafa;
+    position: relative;
+    max-height: none;
+    min-height: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.chat-messages::before {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="bgWatermark" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%230ea5e9;stop-opacity:0.03"/><stop offset="100%" style="stop-color:%23ec4899;stop-opacity:0.03"/></linearGradient></defs><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="url(%23bgWatermark)"/><text x="50" y="45" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="%23e5e7eb">DDK</text><text x="50" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="%23e5e7eb">TECH</text></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .message {
-    display: flex;
-    gap: 12px;
-    animation: messageSlide 0.5s ease-out;
+    max-width: 85%;
+    padding: 16px 20px;
+    border-radius: 20px;
+    animation: messageSlideIn 0.4s ease-out;
+    word-wrap: break-word;
+    line-height: 1.4;
+    position: relative;
 }
 
-@keyframes messageSlide {
+@keyframes messageSlideIn {
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -970,6 +1211,817 @@ backdrop-filter: blur(8px);
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.message.bot {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    align-self: flex-start;
+    border-bottom-left-radius: 8px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.message.user {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 8px;
+    box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);
+}
+
+/* Welcome Message in Chat Body */
+.welcome-message-container {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 6px;
+}
+
+.welcome-message {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.question-text {
+    font-size: 13px;
+    color: #4b5563;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+/* Support Information Styling */
+.support-info {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: 10px;
+    padding: 8px;
+    margin-top: 6px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.support-info p {
+    font-size: 11px;
+    color: #6b7280;
+    font-weight: 500;
+    margin-bottom: 6px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+}
+
+.contact-item:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    transform: translateX(2px);
+}
+
+.contact-icon {
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.contact-text {
+    font-size: 11px;
+    color: #374151;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Choice Buttons */
+.choice-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 0;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.choice-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 3px 12px rgba(102, 126, 234, 0.3);
+    min-width: 100px;
+}
+
+.choice-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.choice-btn:active {
+    transform: translateY(0);
+}
+
+/* Service Information Display */
+.service-info {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 10px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+}
+
+.service-info h5 {
+    color: #1f2937;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.service-info p {
+    color: #4b5563;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+    text-align: center;
+}
+
+.service-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-details li {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 8px 0;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 500;
+    position: relative;
+    padding-left: 32px;
+}
+
+.service-details li:before {
+    content: "✓";
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #10b981;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.service-details li:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    transform: translateX(4px);
+    transition: all 0.2s ease;
+}
+
+/* Forms */
+.form-container {
+    padding: 4px 16px 8px 16px;
+    background: white;
+    border-top: 1px solid #e5e7eb;
+    min-height: auto;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 4px;
+    color: #1f2937;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    outline: none;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    background: #f9fafb;
+}
+
+.form-input:focus {
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    width: 100%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+.loading-indicator {
+    text-align: center;
+    padding: 20px;
+    color: #6b7280;
+}
+
+.spinner {
+    border: 3px solid #f3f4f6;
+    border-top: 3px solid #667eea;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 12px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Message Styling Improvements - Full Width */
+.message {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    animation: fadeInUp 0.3s ease-out;
+    width: 100%;
+    max-width: 100%;
+}
+
+.message.bot-message {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Client Info Message - Full Width Without Avatar */
+.message.client-info-message {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+.message.client-info-message .message-avatar {
+    display: none;
+}
+
+.message.client-info-message .message-content {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+}
+
+/* Service Info Message - Full Width Without Avatar */
+.message.service-info-message {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+.message.service-info-message .message-avatar {
+    display: none;
+}
+
+.message.service-info-message .message-content {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+}
+
+.message-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.message-avatar::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%230ea5e9;stop-opacity:0.8"/><stop offset="100%" style="stop-color:%23ec4899;stop-opacity:0.8"/></linearGradient></defs><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="url(%23logoGrad)" opacity="0.3"/><text x="50" y="45" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">DDK</text><text x="50" y="60" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="white">TECH</text></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.7;
+}
+
+.message-content {
+    flex: 1;
+    background: #f8fafc;
+    padding: 14px;
+    border-radius: 18px;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 100%;
+}
+
+.bot-message .message-content {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    border-color: #cbd5e1;
+    position: relative;
+    overflow: visible;
+    width: 100%;
+    max-width: 100%;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.bot-message .message-content::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="watermarkGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%230ea5e9;stop-opacity:0.05"/><stop offset="100%" style="stop-color:%23ec4899;stop-opacity:0.05"/></linearGradient></defs><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="url(%23watermarkGrad)"/><text x="50" y="45" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="%236b7280">DDK</text><text x="50" y="60" font-family="Arial, sans-serif" font-size="7" font-weight="bold" text-anchor="middle" fill="%236b7280">TECH</text></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.user-message .message-content {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: #667eea;
+}
+
+.message-time {
+    font-size: 10px;
+    color: #9ca3af;
+    margin-top: 8px;
+    text-align: right;
+}
+
+.user-message .message-time {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .chat-window {
+        width: calc(100vw - 40px);
+        height: calc(100vh - 160px);
+        bottom: 60px;
+        right: 20px;
+        left: 20px;
+        border-radius: 20px;
+    }
+
+    .chat-button {
+        bottom: 20px;
+        right: 20px;
+        width: auto;
+        min-width: 60px;
+        height: 60px;
+        font-size: 24px;
+        padding: 0 14px;
+        gap: 6px;
+    }
+
+    .chat-button-text {
+        font-size: 14px;
+    }
+
+    .chat-button-accent {
+        font-size: 14px;
+    }
+
+    .chat-header {
+        padding: 20px 28px 20px 20px;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .bot-title-section {
+        margin-right: 16px;
+    }
+
+    .bot-title {
+        font-size: 24px;
+        height: 36px;
+    }
+
+    .bot-title-accent {
+        font-size: 28px;
+        transform: scale(1.1);
+    }
+
+    .bot-icon {
+        font-size: 28px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .header-controls {
+        gap: 12px;
+    }
+
+    .bot-status {
+        font-size: 11px;
+        margin-right: 6px;
+    }
+
+    .language-toggle {
+        padding: 3px 6px;
+        font-size: 9px;
+    }
+
+    .close-button {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+        margin-right: 2px;
+    }
+
+    .choice-btn {
+        min-width: 120px;
+        padding: 12px 20px;
+        font-size: 12px;
+    }
+
+    .form-container {
+        padding: 6px 16px 12px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chat-window {
+        width: 95vw;
+        height: 80vh;
+        bottom: 80px;
+        right: 2.5vw;
+        left: 2.5vw;
+    }
+
+    .chat-button {
+        bottom: 20px;
+        right: 20px;
+        width: auto;
+        min-width: 60px;
+        height: 60px;
+        font-size: 24px;
+        padding: 0 12px;
+        gap: 4px;
+    }
+
+    .chat-button-text {
+        font-size: 13px;
+    }
+
+    .chat-button-accent {
+        font-size: 13px;
+    }
+
+    .chat-header {
+        padding: 16px 24px 16px 16px;
+        min-height: 70px;
+    }
+
+    .header-content {
+        min-height: 32px;
+    }
+
+    .bot-title-section {
+        gap: 8px;
+        margin-right: 12px;
+    }
+
+    .bot-title {
+        font-size: 22px;
+        height: 32px;
+    }
+
+    .bot-title-accent {
+        font-size: 26px;
+        transform: scale(1.05);
+    }
+
+    .bot-icon {
+        font-size: 24px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .header-controls {
+        gap: 8px;
+    }
+
+    .bot-status {
+        font-size: 10px;
+        margin-right: 4px;
+    }
+
+    .language-toggle {
+        padding: 3px 5px;
+        font-size: 8px;
+    }
+
+    .close-button {
+        width: 18px;
+        height: 18px;
+        font-size: 9px;
+        margin-right: 2px;
+    }
+
+    .client-info {
+        padding: 20px;
+        margin: 12px 0;
+    }
+
+    .client-info h4 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .client-info-grid {
+        gap: 14px;
+    }
+
+    .client-info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 14px 0;
+    }
+
+    .client-info-label {
+        min-width: auto;
+        font-size: 13px;
+        color: #64748b;
+        width: 100%;
+        text-align: left;
+    }
+
+    .client-info-value {
+        width: 100%;
+        font-size: 15px;
+        min-height: 44px;
+        padding: 12px 16px;
+    }
+
+    .support-info {
+        padding: 8px;
+        margin-top: 6px;
+    }
+
+    .support-info p {
+        font-size: 10px;
+        margin-bottom: 6px;
+    }
+
+    .contact-item {
+        padding: 4px 6px;
+    }
+
+    .contact-text {
+        font-size: 10px;
+    }
+}
+
+/* Smooth scrolling */
+.chat-messages {
+    scroll-behavior: smooth;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Custom scrollbar - WebKit browsers (Chrome, Safari, Edge) */
+.chat-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+    margin: 4px 0;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+    border: 1px solid #a8a8a8;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:active {
+    background: #888;
+}
+
+/* Firefox scrollbar */
+.chat-messages {
+    scrollbar-width: thin;
+    scrollbar-color: #c1c1c1 #f1f1f1;
+}
+
+/* Ensure scrollbar is always visible when content overflows */
+.chat-messages {
+    overflow-y: auto;
+    scrollbar-gutter: auto;
+}
+
+/* Additional scrollbar improvements */
+.chat-messages:hover::-webkit-scrollbar-thumb {
+    background: #999;
+}
+
+/* Make scrollbar more visible on mobile */
+@media (max-width: 768px) {
+    .chat-messages::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    .chat-messages::-webkit-scrollbar-thumb {
+        background: #888;
+        border: 2px solid #f1f1f1;
+    }
+}
+
+
+
+.support-info p {
+    font-size: 11px;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.contact-methods {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 11px;
+    color: #374151;
+}
+
+.contact-icon {
+    font-size: 14px;
+}
+
+.contact-text {
+    font-size: 11px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Form Container */
+.form-container {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: #1f2937;
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 13px;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Hidden Classes */
+.hidden {
+    display: none !important;
+}
+
+/* Message Styles */
+.message {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    animation: fadeIn 0.3s ease-in;
 }
 
 .message-avatar {
@@ -984,7 +2036,7 @@ backdrop-filter: blur(8px);
 }
 
 .bot-message .message-avatar {
-    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
 }
 
@@ -993,29 +2045,27 @@ backdrop-filter: blur(8px);
 }
 
 .user-message .message-avatar {
-    background: linear-gradient(135deg, #10B981, #059669);
+    background: linear-gradient(135deg, #10b981, #059669);
     color: white;
 }
 
 .message-content {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+    max-width: calc(100% - 50px);
 }
 
 .message-text {
-    background: white;
-    padding: 14px 18px;
+    background: #f8fafc;
+    padding: 12px 16px;
     border-radius: 18px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     line-height: 1.5;
     font-size: 14px;
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .user-message .message-text {
-    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     margin-left: 20px;
 }
@@ -1026,27 +2076,46 @@ backdrop-filter: blur(8px);
 
 .message-time {
     font-size: 11px;
-    color: #94A3B8;
+    color: #94a3b8;
     text-align: right;
     margin-top: 4px;
 }
 
 .user-message .message-time {
     text-align: left;
-    color: #94A3B8;
+    color: #94a3b8;
+}
+
+/* Full-width client and service info messages */
+.message.client-info-message,
+.message.service-info-message {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+.message.client-info-message .message-avatar,
+.message.service-info-message .message-avatar {
+    display: none;
+}
+
+.message.client-info-message .message-content,
+.message.service-info-message .message-content {
+    margin-left: 0;
+    max-width: 100%;
 }
 
 /* Client Info Display */
 .client-info {
-    background: linear-gradient(135deg, #F0F9FF, #E0F2FE);
-    border: 1px solid #38BDF8;
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border: 1px solid #38bdf8;
     border-radius: 12px;
     padding: 16px;
     margin-top: 8px;
 }
 
 .client-info h4 {
-    color: #0369A1;
+    color: #0369a1;
     margin: 0 0 12px 0;
     font-size: 16px;
     font-weight: 600;
@@ -1067,128 +2136,105 @@ backdrop-filter: blur(8px);
 
 .client-info-label {
     font-weight: 500;
-    color: #0369A1;
-    font-size: 13px;
+    color: #0369a1;
 }
 
 .client-info-value {
-    color: #1E293B;
+    color: #1e293b;
     font-size: 13px;
     text-align: right;
     flex: 1;
     margin-left: 12px;
 }
 
-/* Chat Input */
-.chat-input-container {
-    border-top: 1px solid #E2E8F0;
-    background: white;
-    padding: 20px;
-    border-radius: 0 0 20px 20px;
+/* Service Info Display */
+.service-info {
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border: 1px solid #38bdf8;
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 8px;
 }
 
-.input-group {
-    margin-bottom: 16px;
-}
-
-.input-group:last-child {
-    margin-bottom: 0;
-}
-
-.question-text {
-    font-weight: 600;
-    color: #1E293B;
-    margin-bottom: 12px;
+.service-info h5 {
+    color: #0369a1;
+    margin: 0 0 8px 0;
     font-size: 14px;
+    font-weight: 600;
+}
+
+.service-info p {
+    color: #1e293b;
+    font-size: 13px;
     line-height: 1.5;
+    margin: 0;
 }
 
-.button-group {
-    display: flex;
-    gap: 10px;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.choice-btn {
-    flex: 1;
-    padding: 12px 20px;
-    border: 2px solid #E2E8F0;
-    background: white;
-    border-radius: 12px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+/* Loading Indicator */
+.loading-indicator {
+    text-align: center;
+    padding: 20px;
+    color: #6b7280;
 }
 
-.choice-btn:hover {
-    border-color: #6366F1;
-    background: #F8FAFC;
-    transform: translateY(-1px);
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid #e5e7eb;
+    border-top: 3px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 12px;
 }
 
-.choice-btn.yes-btn:hover {
-    background: linear-gradient(135deg, #10B981, #059669);
-    color: white;
-    border-color: #10B981;
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-.choice-btn.no-btn:hover {
-    background: linear-gradient(135deg, #EF4444, #DC2626);
-    color: white;
-    border-color: #EF4444;
-}
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+    .chat-window {
+        width: calc(100vw - 40px);
+        height: calc(100vh - 160px);
+        right: 20px;
+        left: 20px;
+    }
 
-.input-wrapper {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
+    .chat-button {
+        right: 20px;
+        bottom: 20px;
+    }
 
-.input-wrapper input {
-    flex: 1;
-    padding: 14px 16px;
-    border: 2px solid #E2E8F0;
-    border-radius: 12px;
-    font-size: 14px;
-    outline: none;
-    transition: all 0.3s ease;
-    background: white;
-}
+    .support-info p {
+        font-size: 10px;
+    }
 
-.input-wrapper input:focus {
-    border-color: #6366F1;
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-}
+    .contact-text {
+        font-size: 10px;
+    }
 
-.submit-btn {
-    background: linear-gradient(135deg, #6366F1, #8B5CF6);
-    color: white;
-    border: none;
-    padding: 14px 16px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .choice-btn {
+        font-size: 12px;
+        padding: 8px 16px;
+        min-width: 80px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
 
-.submit-btn:hover {
-    background: linear-gradient(135deg, #5B62E6, #7C3AED);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
-}
 
-label {
-    display: block;
-    font-weight: 600;
-    color: #374151;
-    margin-bottom: 8px;
-    font-size: 14px;
-}
 
 /* Loading Indicator */
 .loading-indicator {
@@ -1245,6 +2291,12 @@ label {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Initial Question */
+.initial-question {
+    padding: 16px 0;
+    text-align: center;
 }
 
 /* Service-specific styling */
@@ -1340,110 +2392,115 @@ label {
 <!-- Progress Bar -->
 <div class="progress-bar" id="progressBar"></div>
 
-<!-- DDK-i Chatbot Widget -->
-<div class="chat-button" id="chatButton">
-<i class="ri-message-3-line"></i>
-<span class="chat-button-text">DDK-i</span>
-</div>
+<!-- DDK-i Modern Chatbot Widget -->
+<button class="chat-button" id="chatButton" title="Chat with DDK-i">
+    💬
+    <span class="chat-button-text">
+        <span class="chat-button-ddk">DDK-</span><span class="chat-button-accent">i</span>
+    </span>
+</button>
 
 <div class="chat-window" id="chatWindow">
-<!-- Chat Header -->
-<div class="chat-header">
-<div class="chat-header-info">
-<div class="bot-avatar">
-<i class="ri-robot-line"></i>
-</div>
-<div class="bot-info">
-<h3>DDK-i</h3>
-<span class="bot-status">
-<span class="status-dot"></span>
-<span id="botStatusText">Online</span>
-</span>
-</div>
-</div>
-<div class="chat-controls">
-<button class="lang-toggle" id="langToggle" title="Switch Language">
-<span id="currentLang">EN</span>
-</button>
-<button class="minimize-btn" id="minimizeBtn" title="Minimize">
-<i class="ri-subtract-line"></i>
-</button>
-</div>
-</div>
+    <!-- Chat Header -->
+    <div class="chat-header">
+        <div class="header-content">
+            <div class="bot-title-section">
+                <span class="bot-icon">🤖</span>
+                <div class="bot-title">
+                    DDK-<span class="bot-title-accent">i</span>
+                </div>
+            </div>
+            <div class="header-controls">
+                <div class="bot-status">
+                    <span class="status-dot"></span>
+                    <span id="botStatusText">Online</span> | <span id="currentLang">EN</span>
+                </div>
+                <button class="language-toggle" id="langToggle">EN/বাং</button>
+                <button class="close-button" id="minimizeBtn" title="Close">×</button>
+            </div>
+        </div>
+    </div>
 
-<!-- Chat Messages -->
-<div class="chat-messages" id="chatMessages">
-<div class="message bot-message fade-in">
-<div class="message-avatar">
-<i class="ri-robot-line"></i>
-</div>
-<div class="message-content">
-<div class="message-text" id="welcomeMessage">
-Hello! I'm DDK-i, your digital assistant from DDK TECH. I'm here to help you with information about our custom business app development services. How can I assist you today?
-</div>
-<div class="message-time">Now</div>
-</div>
-</div>
-</div>
+    <!-- Chat Messages -->
+    <div class="chat-messages" id="chatMessages">
+        <!-- Welcome Message -->
+        <div class="welcome-message-container">
+            <div class="welcome-message" id="welcomeMessage">
+                Hello! I'm DDK-i, your digital assistant from DDK TECH.
+            </div>
+            <div class="question-text" id="questionText">
+                I'm here to help you with information about our custom business app development services. How can I assist you today?
+            </div>
+            <div class="support-info">
+                <p>For additional assistance, please contact our support team:</p>
+                <div class="contact-methods">
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <span class="contact-text">WhatsApp: +91-8820746227</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <span class="contact-text">Email: ddktech.manager@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Additional messages will be added here dynamically -->
+    </div>
 
-<!-- Chat Input Form -->
-<div class="chat-input-container">
-<form class="chat-form" id="chatForm">
-<div class="input-group" id="initialQuestion">
-<div class="question-text" id="questionText">
-Are you an existing DDK TECH client?
-</div>
-<div class="button-group">
-<button type="button" class="choice-btn yes-btn" data-choice="existing">
-<span class="en-text">Yes</span>
-<span class="bn-text">হ্যাঁ</span>
-</button>
-<button type="button" class="choice-btn no-btn" data-choice="new">
-<span class="en-text">No</span>
-<span class="bn-text">না</span>
-</button>
-</div>
-</div>
+    <!-- Form Container -->
+    <div class="form-container">
+        <!-- Initial Question -->
+        <div class="initial-question" id="initialQuestion">
+            <div class="choice-buttons">
+                <button class="choice-btn" data-choice="existing">Existing Client</button>
+                <button class="choice-btn" data-choice="new">NO</button>
+            </div>
+        </div>
 
-<div class="input-group hidden" id="clientIdInput">
-<label for="clientId" id="clientIdLabel">Please enter your Client ID:</label>
-<div class="input-wrapper">
-<input type="text" id="clientId" placeholder="e.g., DDK001" maxlength="10">
-<button type="submit" class="submit-btn" id="submitClientId">
-<i class="ri-send-plane-line"></i>
-</button>
-</div>
-</div>
+        <!-- Client ID Input -->
+        <div class="client-id-input hidden" id="clientIdInput">
+            <form id="chatForm">
+                <div class="form-group">
+                    <label class="form-label" id="clientIdLabel">Please enter your Client ID:</label>
+                    <input type="text" class="form-input" id="clientId" placeholder="e.g., DDK001" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" id="mobileLabel">Please enter your Mobile Number:</label>
+                    <input type="tel" class="form-input" id="mobileNumber" placeholder="e.g., 8820746227" required>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
 
-<div class="input-group hidden" id="nameInput">
-<label for="userName" id="nameLabel">Please enter your name:</label>
-<div class="input-wrapper">
-<input type="text" id="userName" placeholder="Your name">
-<button type="submit" class="submit-btn" id="submitName">
-<i class="ri-send-plane-line"></i>
-</button>
-</div>
-</div>
+        <!-- Name Input -->
+        <div class="name-input hidden" id="nameInput">
+            <form id="nameForm">
+                <div class="form-group">
+                    <label class="form-label" id="nameLabel">Please enter your name:</label>
+                    <input type="text" class="form-input" id="userName" placeholder="Your name" required>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
 
-<div class="input-group hidden" id="queryInput">
-<label for="userQuery" id="queryLabel">What would you like to know about our services?</label>
-<div class="input-wrapper">
-<input type="text" id="userQuery" placeholder="Ask about our apps...">
-<button type="submit" class="submit-btn" id="submitQuery">
-<i class="ri-send-plane-line"></i>
-</button>
-</div>
-</div>
-</form>
-</div>
-</div>
+        <!-- Query Input -->
+        <div class="query-input hidden" id="queryInput">
+            <form id="queryForm">
+                <div class="form-group">
+                    <label class="form-label" id="queryLabel">What would you like to know about our services?</label>
+                    <input type="text" class="form-input" id="userQuery" placeholder="Ask about our apps..." required>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
 
-<div class="loading-indicator hidden" id="loadingIndicator">
-<div class="loading-dots">
-<span></span>
-<span></span>
-<span></span>
-</div>
+    <!-- Loading Indicator -->
+    <div class="loading-indicator hidden" id="loadingIndicator">
+        <div class="spinner"></div>
+        <div>Processing your request...</div>
+    </div>
 </div>
 
 <!-- Back to Top Button -->
@@ -2340,104 +3397,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<script>
-// DDK-i Static Chatbot JavaScript
-class DDKChatbot {
-    constructor() {
-        this.currentLanguage = 'en';
-        this.chatStage = 'initial';
-        this.userName = '';
-        this.isOpen = false;
-        
-        // Static client data - same as Flask backend
-        this.mockClientData = {
-            "DDK001": {
-                "name": "রাহুল দাস / Rahul Das",
-                "project_name": "জিম ম্যানেজমেন্ট অ্যাপ / Gym Management App",
-                "renewal_date": "২০২৫-০৯-১৫ / 2025-09-15",
-                "pending_amount": "₹৫,০০০ / ₹5,000",
-                "status": "সক্রিয় / Active",
-                "last_update": "২০২৫-০৮-১০ / 2025-08-10"
-            },
-            "DDK002": {
-                "name": "ডাঃ প্রিয়া সেন / Dr. Priya Sen", 
-                "project_name": "ফার্মেসি ম্যানেজমেন্ট সিস্টেম / Pharmacy Management System",
-                "renewal_date": "২০২৫-১০-২২ / 2025-10-22",
-                "pending_amount": "₹০ / ₹0",
-                "status": "সক্রিয় / Active",
-                "last_update": "২০২৫-০৮-০৫ / 2025-08-05"
-            },
-            "DDK003": {
-                "name": "অমিত চক্রবর্তী / Amit Chakraborty",
-                "project_name": "ফটোগ্রাফি স্টুডিও অ্যাপ / Photography Studio App",
-                "renewal_date": "২০২৫-১২-৩১ / 2025-12-31",
-                "pending_amount": "₹২,৫০০ / ₹2,500",
-                "status": "পেন্ডিং পেমেন্ট / Pending Payment",
-                "last_update": "২০২৫-০৮-১২ / 2025-08-12"
-            }
-        };
 
-        // Static service information
-        this.serviceInfo = {
-            "gym": {
-                "en": "Gym Management App: Complete solution for membership tracking, payment collection, trainer scheduling, and equipment management. Features include member registration, automated billing, workout plans, and progress tracking.",
-                "bn": "জিম ম্যানেজমেন্ট অ্যাপ: সদস্যতা ট্র্যাকিং, পেমেন্ট সংগ্রহ, প্রশিক্ষক সময়সূচী এবং সরঞ্জাম ব্যবস্থাপনার জন্য সম্পূর্ণ সমাধান। বৈশিষ্ট্যগুলির মধ্যে রয়েছে সদস্য নিবন্ধন, স্বয়ংক্রিয় বিলিং, ওয়ার্কআউট প্ল্যান এবং অগ্রগতি ট্র্যাকিং।"
-            },
-            "pharmacy": {
-                "en": "Pharmacy Management System: Advanced inventory tracking, prescription management, customer database, automated billing, and supplier management. Perfect for medical stores and pharmacies.",
-                "bn": "ফার্মেসি ম্যানেজমেন্ট সিস্টেম: উন্নত ইনভেন্টরি ট্র্যাকিং, প্রেসক্রিপশন ব্যবস্থাপনা, গ্রাহক ডেটাবেস, স্বয়ংক্রিয় বিলিং এবং সরবরাহকারী ব্যবস্থাপনা। মেডিকেল স্টোর এবং ফার্মেসির জন্য নিখুঁত।"
-            },
-            "photography": {
-                "en": "Photography Studio App: Complete studio management with booking system, client galleries, payment tracking, equipment management, and automated workflows for photographers.",
-                "bn": "ফটোগ্রাফি স্টুডিও অ্যাপ: বুকিং সিস্টেম, ক্লায়েন্ট গ্যালারি, পেমেন্ট ট্র্যাকিং, সরঞ্জাম ব্যবস্থাপনা এবং ফটোগ্রাফারদের জন্য স্বয়ংক্রিয় ওয়ার্কফ্লো সহ সম্পূর্ণ স্টুডিও ব্যবস্থাপনা।"
-            },
-            "custom": {
-                "en": "Custom Business Apps: We develop tailored applications for any business type. From restaurants to retail stores, we create solutions that fit your specific needs with 7-14 days delivery.",
-                "bn": "কাস্টম বিজনেস অ্যাপস: আমরা যেকোনো ব্যবসার ধরনের জন্য কাস্টমাইজড অ্যাপ্লিকেশন তৈরি করি। রেস্তোরাঁ থেকে খুচরা দোকান পর্যন্ত, আমরা ৭-১৪ দিনের মধ্যে ডেলিভারি সহ আপনার নির্দিষ্ট প্রয়োজন অনুযায়ী সমাধান তৈরি করি।"
-            }
-        };
-        
-        this.texts = {
-            en: {
-                welcome: "Hello! I'm DDK-i, your digital assistant from DDK TECH. I'm here to help you with information about our custom business app development services. How can I assist you today?",
-                question: "Are you an existing DDK TECH client?",
-                clientIdLabel: "Please enter your Client ID:",
-                clientIdPlaceholder: "e.g., DDK001",
-                nameLabel: "Please enter your name:",
-                namePlaceholder: "Your name",
-                queryLabel: "What would you like to know about our services?",
-                queryPlaceholder: "Ask about our apps...",
-                statusText: "Online",
-                thinking: "Let me check that for you...",
-                greeting: (name) => `Nice to meet you, ${name}! I'm here to help you learn about our services.`,
-                clientFound: "Great! I found your information:",
-                clientNotFound: "Client ID not found. Please check your Client ID or contact our support team at +91-8820746227.",
-                errorMessage: "I apologize, but I'm having trouble processing your request. Please try again or contact our support team.",
-                serviceIntro: "Here's information about our services:",
-                contactPrompt: "Would you like to speak with our human team? Call us at +91-8820746227 or email ddktech.manager@gmail.com"
-            },
-            bn: {
-                welcome: "নমস্কার! আমি ডিডিকে-আই, ডিডিকে টেকের আপনার ডিজিটাল সহায়ক। আমি আমাদের কাস্টম বিজনেস অ্যাপ ডেভেলপমেন্ট সেবা সম্পর্কে তথ্য দিতে এখানে আছি। আজ আমি আপনাকে কীভাবে সাহায্য করতে পারি?",
-                question: "আপনি কি ডিডিকে টেকের একজন বিদ্যমান ক্লায়েন্ট?",
-                clientIdLabel: "অনুগ্রহ করে আপনার ক্লায়েন্ট আইডি লিখুন:",
-                clientIdPlaceholder: "যেমন, DDK001",
-                nameLabel: "অনুগ্রহ করে আপনার নাম লিখুন:",
-                namePlaceholder: "আপনার নাম",
-                queryLabel: "আমাদের সেবা সম্পর্কে আপনি কী জানতে চান?",
-                queryPlaceholder: "আমাদের অ্যাপস সম্পর্কে জিজ্ঞাসা করুন...",
-                statusText: "অনলাইন",
-                thinking: "আমি আপনার জন্য চেক করছি...",
-                greeting: (name) => `আপনার সাথে পরিচিত হয়ে ভালো লাগলো, ${name}! আমি আমাদের সেবা সম্পর্কে জানাতে এখানে আছি।`,
-                clientFound: "দুর্দান্ত! আমি আপনার তথ্য পেয়েছি:",
-                clientNotFound: "ক্লায়েন্ট আইডি পাওয়া যায়নি। অনুগ্রহ করে আপনার ক্লায়েন্ট আইডি চেক করুন বা আমাদের সাপোর্ট টিমের সাথে যোগাযোগ করুন +91-8820746227।",
-                errorMessage: "আমি দুঃখিত, আপনার অনুরোধ প্রক্রিয়া করতে সমস্যা হচ্ছে। অনুগ্রহ করে আবার চেষ্টা করুন বা আমাদের সাপোর্ট টিমের সাথে যোগাযোগ করুন।",
-                serviceIntro: "এখানে আমাদের সেবা সম্পর্কে তথ্য:",
-                contactPrompt: "আপনি কি আমাদের মানুষের টিমের সাথে কথা বলতে চান? আমাদের কল করুন +91-8820746227 বা ইমেইল করুন ddktech.manager@gmail.com"
-            }
-        };
 
-        this.init();
-    }
+
 
     init() {
         this.bindEvents();
@@ -2479,8 +3441,25 @@ class DDKChatbot {
 
         // Form submissions
         const chatForm = document.getElementById('chatForm');
+        const nameForm = document.getElementById('nameForm');
+        const queryForm = document.getElementById('queryForm');
+        
         if (chatForm) {
             chatForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.handleFormSubmit();
+            });
+        }
+        
+        if (nameForm) {
+            nameForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.handleFormSubmit();
+            });
+        }
+        
+        if (queryForm) {
+            queryForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 this.handleFormSubmit();
             });
@@ -2505,12 +3484,12 @@ class DDKChatbot {
         const chatButton = document.getElementById('chatButton');
         
         if (this.isOpen) {
-            chatWindow.classList.remove('open');
-            chatButton.style.display = 'flex';
+            chatWindow.classList.remove('active');
+            chatButton.classList.remove('hidden');
             this.isOpen = false;
         } else {
-            chatWindow.classList.add('open');
-            chatButton.style.display = 'none';
+            chatWindow.classList.add('active');
+            chatButton.classList.add('hidden');
             this.isOpen = true;
             
             // Focus on current input if available
@@ -2522,10 +3501,10 @@ class DDKChatbot {
         this.currentLanguage = this.currentLanguage === 'en' ? 'bn' : 'en';
         this.updateLanguage();
         
-        // Update current lang indicator
-        const currentLangEl = document.getElementById('currentLang');
-        if (currentLangEl) {
-            currentLangEl.textContent = this.currentLanguage.toUpperCase();
+        // Update current lang indicator in header
+        const langToggle = document.getElementById('langToggle');
+        if (langToggle) {
+            langToggle.textContent = this.currentLanguage === 'en' ? 'EN/বাং' : 'বাং/EN';
         }
     }
 
@@ -2900,6 +3879,36 @@ class DDKChatbot {
         div.textContent = text;
         return div.innerHTML;
     }
+
+    // Improved scroll management
+    scrollToBottom() {
+        const messagesContainer = document.getElementById('chatMessages');
+        if (messagesContainer) {
+            // Smooth scroll to bottom
+            messagesContainer.scrollTo({
+                top: messagesContainer.scrollHeight,
+                behavior: 'smooth'
+            });
+            
+            // Ensure scrollbar is visible if content overflows
+            if (messagesContainer.scrollHeight > messagesContainer.clientHeight) {
+                messagesContainer.style.overflowY = 'scroll';
+            }
+        }
+    }
+
+    // Force scrollbar to be visible when needed
+    ensureScrollbarVisibility() {
+        const messagesContainer = document.getElementById('chatMessages');
+        if (messagesContainer) {
+            // Check if content overflows
+            if (messagesContainer.scrollHeight > messagesContainer.clientHeight) {
+                messagesContainer.style.overflowY = 'scroll';
+                // Force a reflow to ensure scrollbar appears
+                messagesContainer.offsetHeight;
+            }
+        }
+    }
 }
 
 // Initialize chatbot when DOM is loaded
@@ -2912,7 +3921,7 @@ function openWhatsApp() {
     // This function is no longer needed since we have DDK-i chatbot
     console.log('DDK-i chatbot is available in the bottom right corner');
 }
-</script>
+<script src="static/js/chatbot.js"></script>
 
 </body>
 </html>

@@ -1,2 +1,0 @@
-# ddktech
-Ddktech

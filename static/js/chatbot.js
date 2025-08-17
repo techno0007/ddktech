@@ -6,6 +6,9 @@ class DDKChatbot {
         this.userName = '';
         this.isOpen = false;
         
+        // Update this to your deployed Lambda Function URL
+        this.lambdaBaseUrl = 'https://uvo5url676gg4uhzp77uc4ax5i0tashl.lambda-url.ap-south-1.on.aws';
+        
         this.texts = {
             en: {
                 welcome: "Hello! I'm DDK-i, your digital assistant from DDK TECH. I'm here to help you with information about our custom business app development services. How can I assist you today?",
@@ -23,7 +26,7 @@ class DDKChatbot {
                 clientNotFound: "Client ID not found. Please check your Client ID or contact our support team at +91-8820746227.",
                 errorMessage: "I apologize, but I'm having trouble processing your request. Please try again or contact our support team.",
                 serviceIntro: "Here's information about our services:",
-                contactPrompt: "Would you like to speak with our human team? <i class='ri-whatsapp-line'></i> WhatsApp us at +91-8820746227 or email ddktech.manager@gmail.com"
+                contactPrompt: "Would you like to speak with our support team? <i class='ri-whatsapp-line'></i> WhatsApp us at +91-8820746227 or email ddktech.manager@gmail.com"
             },
             bn: {
                 welcome: "নমস্কার! আমি ডিডিকে-আই, ডিডিকে টেকের আপনার ডিজিটাল সহায়ক। আমি আমাদের কাস্টম বিজনেস অ্যাপ ডেভেলপমেন্ট সেবা সম্পর্কে তথ্য দিতে এখানে আছি। আজ আমি আপনাকে কীভাবে সাহায্য করতে পারি?",
@@ -41,7 +44,7 @@ class DDKChatbot {
                 clientNotFound: "ক্লায়েন্ট আইডি পাওয়া যায়নি। অনুগ্রহ করে আপনার ক্লায়েন্ট আইডি চেক করুন বা আমাদের সাপোর্ট টিমের সাথে যোগাযোগ করুন +91-8820746227।",
                 errorMessage: "আমি দুঃখিত, আপনার অনুরোধ প্রক্রিয়া করতে সমস্যা হচ্ছে। অনুগ্রহ করে আবার চেষ্টা করুন বা আমাদের সাপোর্ট টিমের সাথে যোগাযোগ করুন।",
                 serviceIntro: "এখানে আমাদের সেবা সম্পর্কে তথ্য:",
-                contactPrompt: "আপনি কি আমাদের মানুষের টিমের সাথে কথা বলতে চান? <i class='ri-whatsapp-line'></i> আমাদের হোয়াটসঅ্যাপ করুন +91-8820746227 বা ইমেইল করুন ddktech.manager@gmail.com"
+                contactPrompt: "আপনি কি আমাদের সাপোর্ট টিমের সাথে কথা বলতে চান? <i class='ri-whatsapp-line'></i> আমাদের হোয়াটসঅ্যাপ করুন +91-8820746227 বা ইমেইল করুন ddktech.manager@gmail.com"
             }
         };
 
@@ -78,19 +81,88 @@ class DDKChatbot {
         });
 
         // Form submissions
-        document.getElementById('chatForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.handleFormSubmit();
+        ['chatForm', 'nameForm', 'queryForm'].forEach(formId => {
+            const form = document.getElementById(formId);
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    if (formId === 'chatForm') {
+                        // Handle client ID form with both fields
+                        const clientId = document.getElementById('clientId').value.trim();
+                        const mobileNumber = document.getElementById('mobileNumber').value.trim();
+                        
+                        if (clientId && mobileNumber) {
+                            // Add user message to chat showing both inputs
+                            this.addUserMessage(`Client ID: ${clientId}, Mobile: ${mobileNumber}`);
+                            
+                            // Process both fields
+                            this.processClientId(clientId);
+                        } else {
+                            this.addBotMessage('Please enter both Client ID and Mobile Number.');
+                        }
+                    } else {
+                        // Handle other forms (name, query)
+                        const inputField = form.querySelector('input[type="text"]');
+                        if (inputField && inputField.value.trim()) {
+                            const userInput = inputField.value.trim();
+                            
+                            // Add user message to chat
+                            this.addUserMessage(userInput);
+                            
+                            // Process based on current stage
+                            if (formId === 'nameForm') {
+                                this.processName(userInput);
+                            } else if (formId === 'queryForm') {
+                                this.processQuery(userInput);
+                            }
+                            
+                            // Clear the input field after processing
+                            inputField.value = '';
+                        }
+                    }
+                });
+            }
         });
 
         // Input field enter key
-        ['clientId', 'userName', 'userQuery'].forEach(id => {
+        ['clientId', 'mobileNumber', 'userName', 'userQuery'].forEach(id => {
             const input = document.getElementById(id);
             if (input) {
                 input.addEventListener('keypress', (e) => {
                     if (e.key === 'Enter') {
                         e.preventDefault();
-                        this.handleFormSubmit();
+                        
+                        if (id === 'clientId' || id === 'mobileNumber') {
+                            // For client ID or mobile number, check both fields
+                            const clientId = document.getElementById('clientId').value.trim();
+                            const mobileNumber = document.getElementById('mobileNumber').value.trim();
+                            
+                            if (clientId && mobileNumber) {
+                                // Add user message to chat showing both inputs
+                                this.addUserMessage(`Client ID: ${clientId}, Mobile: ${mobileNumber}`);
+                                
+                                // Process both fields
+                                this.processClientId(clientId);
+                            } else {
+                                this.addBotMessage('Please enter both Client ID and Mobile Number.');
+                            }
+                        } else if (input.value.trim()) {
+                            const userInput = input.value.trim();
+                            
+                            // Add user message to chat
+                            this.addUserMessage(userInput);
+                            
+                            // Process based on input ID
+                            if (id === 'userName') {
+                                this.processName(userInput);
+                            } else if (id === 'userQuery') {
+                                this.processQuery(userInput);
+                            }
+                            
+                            // Clear the input field after processing
+                            input.value = '';
+                        }
                     }
                 });
             }
@@ -102,16 +174,21 @@ class DDKChatbot {
         const chatButton = document.getElementById('chatButton');
         
         if (this.isOpen) {
-            chatWindow.classList.remove('open');
+            chatWindow.classList.remove('active');
             chatButton.style.display = 'flex';
             this.isOpen = false;
         } else {
-            chatWindow.classList.add('open');
+            chatWindow.classList.add('active');
             chatButton.style.display = 'none';
             this.isOpen = true;
             
             // Focus on current input if available
             this.focusCurrentInput();
+            
+            // Ensure scrollbar is visible if needed
+            setTimeout(() => {
+                this.ensureScrollbarVisibility();
+            }, 300);
         }
     }
 
@@ -131,8 +208,11 @@ class DDKChatbot {
         // Update text content
         const texts = this.texts[this.currentLanguage];
         
+        // Update welcome message in chat body
         document.getElementById('welcomeMessage').textContent = texts.welcome;
         document.getElementById('questionText').textContent = texts.question;
+        
+        // Update form labels
         document.getElementById('clientIdLabel').textContent = texts.clientIdLabel;
         document.getElementById('nameLabel').textContent = texts.nameLabel;
         document.getElementById('queryLabel').textContent = texts.queryLabel;
@@ -197,20 +277,46 @@ class DDKChatbot {
         }
     }
 
-    async handleClientId() {
-        const clientId = document.getElementById('clientId').value.trim();
-        if (!clientId) return;
+    processClientId(clientId) {
+        this.currentClientId = clientId;
+        this.chatStage = 'client-id';
+        this.handleClientId();
+    }
 
-        this.addUserMessage(clientId);
+    processName(name) {
+        this.currentName = name;
+        this.chatStage = 'name';
+        this.handleName();
+    }
+
+    processQuery(query) {
+        this.currentQuery = query;
+        this.chatStage = 'query';
+        this.handleQuery();
+    }
+
+    async handleClientId() {
+        // Get client ID and mobile number from the form
+        const clientId = this.currentClientId || document.getElementById('clientId').value.trim();
+        const mobileNumber = document.getElementById('mobileNumber').value.trim();
+        
+        if (!clientId || !mobileNumber) {
+            this.addBotMessage('Please enter both Client ID and Mobile Number.');
+            return;
+        }
+
         this.showLoading();
 
         try {
-            const response = await fetch('/api/check_client', {
+            const response = await fetch(`${this.lambdaBaseUrl}/api/check_client`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ client_id: clientId })
+                body: JSON.stringify({ 
+                    client_id: clientId,
+                    mobile_number: mobileNumber
+                })
             });
 
             const data = await response.json();
@@ -225,8 +331,10 @@ class DDKChatbot {
                 this.addBotMessageHTML(this.texts[this.currentLanguage].contactPrompt);
             }
 
-            // Hide client ID input
+            // Hide client ID input and clear the fields
             document.getElementById('clientIdInput').classList.add('hidden');
+            document.getElementById('clientId').value = '';
+            document.getElementById('mobileNumber').value = '';
             this.chatStage = 'completed';
 
         } catch (error) {
@@ -237,28 +345,29 @@ class DDKChatbot {
     }
 
     handleName() {
-        const name = document.getElementById('userName').value.trim();
+        // Get name from the parameter passed by the caller
+        const name = this.currentName || document.getElementById('userName').value.trim();
         if (!name) return;
 
         this.userName = name;
-        this.addUserMessage(name);
         this.addBotMessage(this.texts[this.currentLanguage].greeting(name));
 
-        // Hide name input and show query input
+        // Hide name input, clear the field, and show query input
         document.getElementById('nameInput').classList.add('hidden');
+        document.getElementById('userName').value = '';
         this.showQueryInput();
         this.chatStage = 'query';
     }
 
     async handleQuery() {
-        const query = document.getElementById('userQuery').value.trim();
+        // Get query from the parameter passed by the caller
+        const query = this.currentQuery || document.getElementById('userQuery').value.trim();
         if (!query) return;
 
-        this.addUserMessage(query);
         this.showLoading();
 
         try {
-            const response = await fetch('/api/get_service_info', {
+            const response = await fetch(`${this.lambdaBaseUrl}/api/get_service_info`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -292,34 +401,28 @@ class DDKChatbot {
 
     addUserMessage(text) {
         const messageDiv = document.createElement('div');
-        messageDiv.className = 'message user-message fade-in';
-        messageDiv.innerHTML = `
-            <div class="message-avatar">
-                <i class="ri-user-line"></i>
-            </div>
-            <div class="message-content">
-                <div class="message-text">${this.escapeHtml(text)}</div>
-                <div class="message-time">Now</div>
-            </div>
-        `;
-
+        messageDiv.className = 'message user';
+        messageDiv.textContent = this.escapeHtml(text);
         this.appendMessage(messageDiv);
+        
+        // Auto-scroll to bottom
+        setTimeout(() => {
+            this.scrollToBottom();
+            this.ensureScrollbarVisibility();
+        }, 100);
     }
 
     addBotMessage(text) {
         const messageDiv = document.createElement('div');
-        messageDiv.className = 'message bot-message fade-in';
-        messageDiv.innerHTML = `
-            <div class="message-avatar">
-                <i class="ri-robot-line"></i>
-            </div>
-            <div class="message-content">
-                <div class="message-text">${this.escapeHtml(text)}</div>
-                <div class="message-time">Now</div>
-            </div>
-        `;
-
+        messageDiv.className = 'message bot';
+        messageDiv.textContent = this.escapeHtml(text);
         this.appendMessage(messageDiv);
+        
+        // Auto-scroll to bottom
+        setTimeout(() => {
+            this.scrollToBottom();
+            this.ensureScrollbarVisibility();
+        }, 100);
     }
 
     addBotMessageHTML(htmlContent) {
@@ -339,36 +442,70 @@ class DDKChatbot {
     }
 
     displayClientInfo(clientInfo) {
-        const messageDiv = document.createElement('div');
-        messageDiv.className = 'message bot-message fade-in';
+        console.log('Displaying client info:', clientInfo); // Debug log
         
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message bot-message client-info-message fade-in';
+        messageDiv.style.width = '100%';
+        messageDiv.style.maxWidth = '100%';
+        
+        // Helper function to format values and handle undefined
+        const formatValue = (value, defaultValue = 'Not Available') => {
+            if (value === undefined || value === null || value === '') {
+                return defaultValue;
+            }
+            return value;
+        };
+
+        // Helper function to get status class
+        const getStatusClass = (status) => {
+            if (!status) return '';
+            const statusLower = status.toLowerCase();
+            if (statusLower.includes('active') || statusLower.includes('running')) return 'status-active';
+            if (statusLower.includes('pending') || statusLower.includes('waiting')) return 'status-pending';
+            if (statusLower.includes('completed') || statusLower.includes('done')) return 'status-completed';
+            return '';
+        };
+
         const clientInfoHtml = `
-            <div class="client-info">
+            <div class="client-info" style="width: 100%; max-width: 100%;">
                 <h4>${this.currentLanguage === 'en' ? 'Client Information' : 'ক্লায়েন্ট তথ্য'}</h4>
-                <div class="client-info-item">
-                    <span class="client-info-label">${this.currentLanguage === 'en' ? 'Name' : 'নাম'}:</span>
-                    <span class="client-info-value">${clientInfo.name}</span>
+                <div class="client-info-grid">
+                    <div class="client-info-item">
+                        <span class="client-info-label">${this.currentLanguage === 'en' ? 'Name' : 'নাম'}</span>
+                        <span class="client-info-value ${!clientInfo.name ? 'empty' : ''}">${formatValue(clientInfo.name, 'Not Available')}</span>
+                    </div>
+                    <div class="client-info-item">
+                        <span class="client-info-label">${this.currentLanguage === 'en' ? 'Mobile' : 'মোবাইল'}</span>
+                        <span class="client-info-value mobile-number ${!clientInfo.mobile_number ? 'empty' : ''}">${formatValue(clientInfo.mobile_number, 'Not Available')}</span>
+                    </div>
+                    <div class="client-info-item">
+                        <span class="client-info-label">${this.currentLanguage === 'en' ? 'Company' : 'কোম্পানি'}</span>
+                        <span class="client-info-value ${!clientInfo.company ? 'empty' : ''}">${formatValue(clientInfo.company, 'Not Available')}</span>
+                    </div>
+                    <div class="client-info-item">
+                        <span class="client-info-label">${this.currentLanguage === 'en' ? 'Project' : 'প্রকল্প'}</span>
+                        <span class="client-info-value ${!clientInfo.project_name ? 'empty' : ''}">${formatValue(clientInfo.project_name, 'Not Available')}</span>
+                    </div>
+                    <div class="client-info-item">
+                        <span class="client-info-label">${this.currentLanguage === 'en' ? 'Status' : 'অবস্থা'}</span>
+                        <span class="client-info-value ${getStatusClass(clientInfo.status)}">${formatValue(clientInfo.status, 'Not Available')}</span>
+                    </div>
+                    <div class="client-info-item">
+                        <span class="client-info-label">${this.currentLanguage === 'en' ? 'Created Date' : 'তৈরির তারিখ'}</span>
+                        <span class="client-info-value ${!clientInfo.created_date ? 'empty' : ''}">${formatValue(clientInfo.created_date, 'Not Available')}</span>
+                    </div>
+                    <div class="client-info-item">
+                        <span class="client-info-label">${this.currentLanguage === 'en' ? 'Last Contact' : 'শেষ যোগাযোগ'}</span>
+                        <span class="client-info-value ${!clientInfo.last_contact ? 'empty' : ''}">${formatValue(clientInfo.last_contact, 'Not Available')}</span>
+                    </div>
                 </div>
-                <div class="client-info-item">
-                    <span class="client-info-label">${this.currentLanguage === 'en' ? 'Project' : 'প্রকল্প'}:</span>
-                    <span class="client-info-value">${clientInfo.project_name}</span>
-                </div>
-                <div class="client-info-item">
-                    <span class="client-info-label">${this.currentLanguage === 'en' ? 'Renewal Date' : 'নবায়ন তারিখ'}:</span>
-                    <span class="client-info-value">${clientInfo.renewal_date}</span>
-                </div>
-                <div class="client-info-item">
-                    <span class="client-info-label">${this.currentLanguage === 'en' ? 'Pending Amount' : 'বকেয়া টাকা'}:</span>
-                    <span class="client-info-value">${clientInfo.pending_amount}</span>
-                </div>
-                <div class="client-info-item">
-                    <span class="client-info-label">${this.currentLanguage === 'en' ? 'Status' : 'অবস্থা'}:</span>
-                    <span class="client-info-value">${clientInfo.status}</span>
-                </div>
-                <div class="client-info-item">
-                    <span class="client-info-label">${this.currentLanguage === 'en' ? 'Last Update' : 'শেষ আপডেট'}:</span>
-                    <span class="client-info-value">${clientInfo.last_update}</span>
-                </div>
+                ${clientInfo.services && clientInfo.services.length > 0 ? `
+                    <div class="client-info-item" style="grid-column: 1 / -1; margin-top: 12px;">
+                        <span class="client-info-label">${this.currentLanguage === 'en' ? 'Services' : 'সেবাসমূহ'}</span>
+                        <span class="client-info-value">${Array.isArray(clientInfo.services) ? clientInfo.services.join(', ') : clientInfo.services}</span>
+                    </div>
+                ` : ''}
             </div>
         `;
 
@@ -376,26 +513,55 @@ class DDKChatbot {
             <div class="message-avatar">
                 <i class="ri-robot-line"></i>
             </div>
-            <div class="message-content">
+            <div class="message-content" style="width: 100%; max-width: 100%;">
                 ${clientInfoHtml}
                 <div class="message-time">Now</div>
             </div>
         `;
 
+        console.log('Client info HTML:', clientInfoHtml); // Debug log
         this.appendMessage(messageDiv);
+        
+        // Ensure scrollbar is visible and scroll to bottom
+        setTimeout(() => {
+            this.scrollToBottom();
+            this.ensureScrollbarVisibility();
+        }, 100);
     }
 
     displayServiceInfo(serviceInfo, serviceType) {
         const messageDiv = document.createElement('div');
-        messageDiv.className = 'message bot-message fade-in';
+        messageDiv.className = 'message bot-message service-info-message fade-in';
         
-        const serviceInfoHtml = `
-            <div class="service-info">
-                <h5>${this.getServiceTitle(serviceType)}</h5>
-                <p>${serviceInfo}</p>
-            </div>
-        `;
-
+        // Check if serviceInfo is an object and has the expected structure
+        let serviceInfoHtml = '';
+        
+        if (serviceInfo && typeof serviceInfo === 'object') {
+            const title = serviceInfo.title || 'Service Information';
+            const description = serviceInfo.description || '';
+            const details = serviceInfo.details || [];
+            
+            serviceInfoHtml = `
+                <div class="service-info">
+                    <h5>${title}</h5>
+                    ${description ? `<p>${description}</p>` : ''}
+                    ${details.length > 0 ? `
+                        <ul class="service-details">
+                            ${details.map(detail => `<li>${detail}</li>`).join('')}
+                        </ul>
+                    ` : ''}
+                </div>
+            `;
+        } else {
+            // Fallback if serviceInfo is not in expected format
+            serviceInfoHtml = `
+                <div class="service-info">
+                    <h5>${this.getServiceTitle(serviceType)}</h5>
+                    <p>${serviceInfo || 'Service information not available'}</p>
+                </div>
+            `;
+        }
+        
         messageDiv.innerHTML = `
             <div class="message-avatar">
                 <i class="ri-robot-line"></i>
@@ -477,6 +643,36 @@ class DDKChatbot {
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
+    }
+
+    // Improved scroll management
+    scrollToBottom() {
+        const messagesContainer = document.getElementById('chatMessages');
+        if (messagesContainer) {
+            // Smooth scroll to bottom
+            messagesContainer.scrollTo({
+                top: messagesContainer.scrollHeight,
+                behavior: 'smooth'
+            });
+            
+            // Ensure scrollbar is visible if content overflows
+            if (messagesContainer.scrollHeight > messagesContainer.clientHeight) {
+                messagesContainer.style.overflowY = 'scroll';
+            }
+        }
+    }
+
+    // Force scrollbar to be visible when needed
+    ensureScrollbarVisibility() {
+        const messagesContainer = document.getElementById('chatMessages');
+        if (messagesContainer) {
+            // Check if content overflows
+            if (messagesContainer.scrollHeight > messagesContainer.clientHeight) {
+                messagesContainer.style.overflowY = 'scroll';
+                // Force a reflow to ensure scrollbar appears
+                messagesContainer.offsetHeight;
+            }
+        }
     }
 }
 

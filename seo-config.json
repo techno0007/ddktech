@@ -1,0 +1,130 @@
+{
+  "site": {
+    "name": "DDK TECH",
+    "url": "https://ddktechofficial.github.io/ddk-tech-website",
+    "description": "West Bengal's premier custom business web app developer, transforming local businesses through cutting-edge technology and innovative solutions.",
+    "keywords": [
+      "custom business web apps",
+      "website development",
+      "West Bengal",
+      "gym management web app",
+      "pharmacy management system",
+      "photography studio web app",
+      "web application development",
+      "web design",
+      "Kolkata",
+      "Bengali business solutions",
+      "business automation",
+      "custom software development"
+    ],
+    "author": "DDK TECH",
+    "language": "en",
+    "locale": "en_US"
+  },
+  "contact": {
+    "phone": "+91-8820746227",
+    "email": "ddktech.manager@gmail.com",
+    "whatsapp": "https://wa.me/918820746227",
+    "facebook": "https://www.facebook.com/DdkTechOfficial",
+    "address": {
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "country": "India"
+    }
+  },
+  "services": [
+    {
+      "name": "Gym Management System",
+      "description": "Complete gym management web application with member tracking, billing, and analytics",
+      "priceRange": "₹45,000 - ₹65,000",
+      "deliveryTime": "10-12 days",
+      "features": [
+        "Member Management",
+        "Payment Processing",
+        "Analytics Dashboard",
+        "Mobile Responsive"
+      ]
+    },
+    {
+      "name": "Pharmacy Management System",
+      "description": "Pharmacy automation with inventory control and prescription tracking",
+      "priceRange": "₹55,000 - ₹75,000",
+      "deliveryTime": "12-14 days",
+      "features": [
+        "Inventory Control",
+        "Prescription Tracking",
+        "Billing System",
+        "Stock Management"
+      ]
+    },
+    {
+      "name": "Photography Studio Management",
+      "description": "Photography studio solutions with booking and gallery management",
+      "priceRange": "₹35,000 - ₹55,000",
+      "deliveryTime": "8-10 days",
+      "features": [
+        "Booking System",
+        "Gallery Management",
+        "Client Management",
+        "Portfolio Display"
+      ]
+    },
+    {
+      "name": "Custom Web Applications",
+      "description": "Tailored web applications for any business need",
+      "priceRange": "₹25,000 - ₹1,00,000",
+      "deliveryTime": "7-21 days",
+      "features": [
+        "Custom Development",
+        "Database Integration",
+        "API Development",
+        "Third-party Integrations"
+      ]
+    }
+  ],
+  "seo": {
+    "metaTags": {
+      "robots": "index, follow",
+      "viewport": "width=device-width, initial-scale=1.0",
+      "theme-color": "#00d4ff"
+    },
+    "openGraph": {
+      "type": "website",
+      "site_name": "DDK TECH",
+      "locale": "en_US"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "site": "@ddktechofficial"
+    },
+    "structuredData": {
+      "organization": {
+        "@type": "Organization",
+        "name": "DDK TECH",
+        "url": "https://ddktechofficial.github.io/ddk-tech-website",
+        "logo": "https://ddktechofficial.info/public/logo.png"
+      }
+    }
+  },
+  "analytics": {
+    "googleAnalytics": {
+      "measurementId": "G-XXXXXXXXXX",
+      "enabled": true
+    },
+    "googleSearchConsole": {
+      "verificationCode": "[TO BE REPLACED]",
+      "enabled": false
+    }
+  },
+  "performance": {
+    "lazyLoading": true,
+    "imageOptimization": true,
+    "minification": true,
+    "caching": true
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/DdkTechOfficial",
+    "whatsapp": "https://wa.me/918820746227",
+    "email": "ddktech.manager@gmail.com"
+  }
+}

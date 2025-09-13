@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Center - DDK TECH Development Process</title>
+    <meta name="description" content="Explore DDK TECH's development process, technology stack, and business-specific integrations. Learn how we build custom web applications.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../public/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800;900&family=Exo+2:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/main.css?v=999999">
+    <link rel="stylesheet" href="../css/tailwind.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="../js/mobile-smooth.js"></script>
+    <script src="../js/mobile-gsap-config.js"></script>
+</head>
+<body class="bg-background text-text-primary overflow-x-hidden">
+    <!-- Header -->
+    <header class="relative z-50 bg-background/95 backdrop-blur-sm border-b border-accent/20">
+        <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+                <!-- Logo -->
+            <div class="flex items-center space-x-4">
+                <img src="../public/logo.png" alt="DDK TECH Logo" class="h-12 w-12">
+                <div>
+                    <h1 class="text-xl font-bold text-accent">DDK TECH</h1>
+                    <p class="text-sm text-text-secondary">Enhance Yourself with Technology</p>
+                </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                <a href="homepage.html" class="text-text-primary hover:text-accent transition-colors">Home</a>
+                <a href="services_showcase.html" class="text-text-primary hover:text-accent transition-colors">Services</a>
+                <a href="about_experience.html" class="text-text-primary hover:text-accent transition-colors">About</a>
+                <a href="technology_center.html" class="text-accent font-semibold">Technology</a>
+                <a href="contact_hub.html" class="text-text-primary hover:text-accent transition-colors">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-text-primary">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+        </nav>
+
+            <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-background/95 backdrop-blur-sm border-t border-accent/20">
+            <div class="container mx-auto px-4 py-4 space-y-4">
+                <a href="homepage.html" class="block text-text-primary hover:text-accent transition-colors">Home</a>
+                <a href="services_showcase.html" class="block text-text-primary hover:text-accent transition-colors">Services</a>
+                <a href="about_experience.html" class="block text-text-primary hover:text-accent transition-colors">About</a>
+                <a href="technology_center.html" class="block text-accent font-semibold">Technology</a>
+                <a href="contact_hub.html" class="block text-text-primary hover:text-accent transition-colors">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 pt-32 pb-20 px-4 overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <!-- Floating Tech Icons -->
+            <div class="absolute top-20 left-10 w-16 h-16 opacity-20 animate-float">
+                <svg class="w-full h-full text-accent" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+            </div>
+            <div class="absolute top-40 right-20 w-12 h-12 opacity-30 animate-float-delayed">
+                <svg class="w-full h-full text-accent" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+            </div>
+            <div class="absolute bottom-20 left-1/4 w-14 h-14 opacity-25 animate-float-slow">
+                <svg class="w-full h-full text-accent" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                </svg>
+            </div>
+            
+            <!-- Neural Network Lines -->
+            <div class="absolute inset-0">
+                <svg class="w-full h-full opacity-10" viewBox="0 0 1000 600">
+                    <defs>
+                        <linearGradient id="neuralGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00bfff;stop-opacity:0.3" />
+                            <stop offset="50%" style="stop-color:#00ffff;stop-opacity:0.1" />
+                            <stop offset="100%" style="stop-color:#00bfff;stop-opacity:0.3" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M100,100 Q300,50 500,150 T900,100" stroke="url(#neuralGradient)" stroke-width="2" fill="none" class="animate-pulse">
+                        <animate attributeName="stroke-dasharray" values="0,1000;1000,0;0,1000" dur="8s" repeatCount="indefinite"/>
+                    </path>
+                    <path d="M100,200 Q400,100 700,200 T900,200" stroke="url(#neuralGradient)" stroke-width="1.5" fill="none" class="animate-pulse">
+                        <animate attributeName="stroke-dasharray" values="0,1000;1000,0;0,1000" dur="10s" repeatCount="indefinite"/>
+                    </path>
+                    <path d="M100,300 Q350,250 600,300 T900,300" stroke="url(#neuralGradient)" stroke-width="1" fill="none" class="animate-pulse">
+                        <animate attributeName="stroke-dasharray" values="0,1000;1000,0;0,1000" dur="12s" repeatCount="indefinite"/>
+                    </path>
+                </svg>
+            </div>
+        </div>
+
+        <div class="container mx-auto text-center relative z-10">
+            <!-- Animated Title -->
+            <div class="mb-8">
+                <h1 class="mb-6">
+                    <span class="block text-5xl md:text-7xl font-black tracking-tight mb-2" style="font-family: 'Orbitron', 'Inter', sans-serif;">
+                        <span class="bg-gradient-to-r from-cyan-400 via-accent to-cyan-300 bg-clip-text text-transparent animate-gradient-x drop-shadow-2xl">
+                            TECHNOLOGY
+                        </span>
+                    </span>
+                    <span class="block text-6xl md:text-8xl font-extrabold tracking-wider text-white relative" style="font-family: 'Exo 2', 'Inter', sans-serif; text-shadow: 0 0 30px rgba(0, 191, 255, 0.5);">
+                        CENTER
+                        <!-- Animated underline -->
+                        <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-0 h-2 bg-gradient-to-r from-cyan-400 via-accent to-cyan-300 animate-expand-width rounded-full"></div>
+                    </span>
+                </h1>
+                <div class="mt-8">
+                    <h2 class="text-3xl md:text-4xl font-light text-gray-300 tracking-wide" style="font-family: 'Inter', sans-serif;">
+                        Our Development Process
+                    </h2>
+                </div>
+            </div>
+            
+            <!-- Animated Description -->
+            <div class="max-w-5xl mx-auto">
+                <p class="text-2xl md:text-3xl text-gray-200 mb-12 leading-relaxed animate-fade-in-up font-light tracking-wide" style="font-family: 'Inter', sans-serif;">
+                    Discover how we build custom web applications using 
+                    <span class="text-cyan-400 font-bold animate-pulse bg-gradient-to-r from-cyan-400 to-accent bg-clip-text text-transparent" style="text-shadow: 0 0 20px rgba(0, 191, 255, 0.5);">cutting-edge technology</span> 
+                    and proven development methodologies.
+                </p>
+                
+                <!-- Tech Stack Preview -->
+                <div class="flex flex-wrap justify-center gap-6 mt-12 animate-fade-in-up-delayed">
+                    <div class="px-6 py-3 bg-gradient-to-r from-cyan-500/10 to-accent/10 backdrop-blur-md border border-cyan-400/30 rounded-full text-cyan-300 text-base font-semibold hover:bg-gradient-to-r hover:from-cyan-500/20 hover:to-accent/20 hover:border-cyan-400/60 transition-all duration-500 hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/25" style="font-family: 'Inter', sans-serif; text-shadow: 0 0 10px rgba(0, 191, 255, 0.3);">
+                        React.js
+                    </div>
+                    <div class="px-6 py-3 bg-gradient-to-r from-cyan-500/10 to-accent/10 backdrop-blur-md border border-cyan-400/30 rounded-full text-cyan-300 text-base font-semibold hover:bg-gradient-to-r hover:from-cyan-500/20 hover:to-accent/20 hover:border-cyan-400/60 transition-all duration-500 hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/25" style="font-family: 'Inter', sans-serif; text-shadow: 0 0 10px rgba(0, 191, 255, 0.3);">
+                        Node.js
+                    </div>
+                    <div class="px-6 py-3 bg-gradient-to-r from-cyan-500/10 to-accent/10 backdrop-blur-md border border-cyan-400/30 rounded-full text-cyan-300 text-base font-semibold hover:bg-gradient-to-r hover:from-cyan-500/20 hover:to-accent/20 hover:border-cyan-400/60 transition-all duration-500 hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/25" style="font-family: 'Inter', sans-serif; text-shadow: 0 0 10px rgba(0, 191, 255, 0.3);">
+                        MongoDB
+                    </div>
+                    <div class="px-6 py-3 bg-gradient-to-r from-cyan-500/10 to-accent/10 backdrop-blur-md border border-cyan-400/30 rounded-full text-cyan-300 text-base font-semibold hover:bg-gradient-to-r hover:from-cyan-500/20 hover:to-accent/20 hover:border-cyan-400/60 transition-all duration-500 hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/25" style="font-family: 'Inter', sans-serif; text-shadow: 0 0 10px rgba(0, 191, 255, 0.3);">
+                        AI Integration
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Process Section -->
+    <section class="relative z-10 py-20 px-4 bg-surface/30 overflow-hidden">
+        <!-- Animated Background -->
+        <div class="absolute inset-0">
+            <div class="absolute top-10 right-10 w-32 h-32 opacity-5 animate-neural-pulse">
+                <svg class="w-full h-full text-accent" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+            </div>
+            <div class="absolute bottom-10 left-10 w-24 h-24 opacity-5 animate-neural-pulse" style="animation-delay: 2s;">
+                <svg class="w-full h-full text-accent" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="container mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-black text-cyan-400 mb-6 animate-fade-in-up tracking-tight" style="font-family: 'Orbitron', sans-serif; text-shadow: 0 0 30px rgba(0, 191, 255, 0.5);">
+                    Our Development Process
+                </h2>
+                <p class="text-2xl md:text-3xl text-gray-300 animate-fade-in-up-delayed font-light tracking-wide" style="font-family: 'Inter', sans-serif;">
+                    From concept to deployment in 
+                    <span class="text-cyan-400 font-bold animate-pulse bg-gradient-to-r from-cyan-400 to-accent bg-clip-text text-transparent" style="text-shadow: 0 0 20px rgba(0, 191, 255, 0.5);">7-14 days</span>
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="tech-card bg-surface/50 backdrop-blur-sm border border-accent/20 rounded-lg p-6 text-center group hover:border-accent/50 transition-all duration-500">
+                    <div class="w-16 h-16 bg-gradient-to-br from-accent/20 to-accent/40 rounded-full flex items-center justify-center mx-auto mb-4 relative overflow-hidden">
+                        <span class="text-2xl font-bold text-accent relative z-10">1</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-accent/30 to-transparent animate-pulse"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-4 group-hover:text-cyan-300 transition-colors tracking-wide" style="font-family: 'Exo 2', sans-serif;">Discovery</h3>
+                    <p class="text-gray-300 text-base leading-relaxed font-light" style="font-family: 'Inter', sans-serif;">We understand your business needs, goals, and requirements through detailed consultation.</p>
+                    <!-- Animated Progress Line -->
+                    <div class="mt-4 h-1 bg-surface/30 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-accent to-cyan-400 rounded-full animate-expand-width" style="animation-delay: 0.5s;"></div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="tech-card bg-surface/50 backdrop-blur-sm border border-accent/20 rounded-lg p-6 text-center group hover:border-accent/50 transition-all duration-500">
+                    <div class="w-16 h-16 bg-gradient-to-br from-accent/20 to-accent/40 rounded-full flex items-center justify-center mx-auto mb-4 relative overflow-hidden">
+                        <span class="text-2xl font-bold text-accent relative z-10">2</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-accent/30 to-transparent animate-pulse" style="animation-delay: 0.5s;"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-4 group-hover:text-cyan-300 transition-colors tracking-wide" style="font-family: 'Exo 2', sans-serif;">Design</h3>
+                    <p class="text-gray-300 text-base leading-relaxed font-light" style="font-family: 'Inter', sans-serif;">Create wireframes, mockups, and user interface designs tailored to your business.</p>
+                    <!-- Animated Progress Line -->
+                    <div class="mt-4 h-1 bg-surface/30 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-accent to-cyan-400 rounded-full animate-expand-width" style="animation-delay: 1s;"></div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="tech-card bg-surface/50 backdrop-blur-sm border border-accent/20 rounded-lg p-6 text-center group hover:border-accent/50 transition-all duration-500">
+                    <div class="w-16 h-16 bg-gradient-to-br from-accent/20 to-accent/40 rounded-full flex items-center justify-center mx-auto mb-4 relative overflow-hidden">
+                        <span class="text-2xl font-bold text-accent relative z-10">3</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-accent/30 to-transparent animate-pulse" style="animation-delay: 1s;"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-4 group-hover:text-cyan-300 transition-colors tracking-wide" style="font-family: 'Exo 2', sans-serif;">Development</h3>
+                    <p class="text-gray-300 text-base leading-relaxed font-light" style="font-family: 'Inter', sans-serif;">Build your custom web application using modern technologies and best practices.</p>
+                    <!-- Animated Progress Line -->
+                    <div class="mt-4 h-1 bg-surface/30 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-accent to-cyan-400 rounded-full animate-expand-width" style="animation-delay: 1.5s;"></div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="tech-card bg-surface/50 backdrop-blur-sm border border-accent/20 rounded-lg p-6 text-center group hover:border-accent/50 transition-all duration-500">
+                    <div class="w-16 h-16 bg-gradient-to-br from-accent/20 to-accent/40 rounded-full flex items-center justify-center mx-auto mb-4 relative overflow-hidden">
+                        <span class="text-2xl font-bold text-accent relative z-10">4</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-accent/30 to-transparent animate-pulse" style="animation-delay: 1.5s;"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-4 group-hover:text-cyan-300 transition-colors tracking-wide" style="font-family: 'Exo 2', sans-serif;">Deployment</h3>
+                    <p class="text-gray-300 text-base leading-relaxed font-light" style="font-family: 'Inter', sans-serif;">Launch your application with full support and training for your team.</p>
+                    <!-- Animated Progress Line -->
+                    <div class="mt-4 h-1 bg-surface/30 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-accent to-cyan-400 rounded-full animate-expand-width" style="animation-delay: 2s;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section class="relative z-10 py-20 px-4 overflow-hidden">
+        <!-- Animated Background Grid -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(0, 191, 255, 0.3) 1px, transparent 0); background-size: 50px 50px;"></div>
+        </div>
+
+        <div class="container mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-black text-cyan-400 mb-6 animate-fade-in-up tracking-tight" style="font-family: 'Orbitron', sans-serif; text-shadow: 0 0 30px rgba(0, 191, 255, 0.5);">
+                    Technology Stack
+                </h2>
+                <p class="text-2xl md:text-3xl text-gray-300 animate-fade-in-up-delayed font-light tracking-wide" style="font-family: 'Inter', sans-serif;">
+                    Modern technologies for 
+                    <span class="text-cyan-400 font-bold animate-pulse bg-gradient-to-r from-cyan-400 to-accent bg-clip-text text-transparent" style="text-shadow: 0 0 20px rgba(0, 191, 255, 0.5);">robust applications</span>
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Frontend -->
+                <div class="tech-card bg-surface/50 backdrop-blur-sm border border-accent/20 rounded-lg p-8 group hover:border-accent/50 transition-all duration-500 relative overflow-hidden">
+                    <!-- Animated Background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent/20 to-accent/40 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-accent group-hover:text-cyan-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-cyan-400 mb-6 group-hover:text-cyan-300 transition-colors tracking-wide" style="font-family: 'Exo 2', sans-serif;">Frontend</h3>
+                        <ul class="text-gray-300 space-y-3">
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse"></span>
+                                HTML5 & CSS3
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.2s;"></span>
+                                JavaScript (ES6+)
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.4s;"></span>
+                                React.js
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.6s;"></span>
+                                Tailwind CSS
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.8s;"></span>
+                                Responsive Design
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="tech-card bg-surface/50 backdrop-blur-sm border border-accent/20 rounded-lg p-8 group hover:border-accent/50 transition-all duration-500 relative overflow-hidden">
+                    <!-- Animated Background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent/20 to-accent/40 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-accent group-hover:text-cyan-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-cyan-400 mb-6 group-hover:text-cyan-300 transition-colors tracking-wide" style="font-family: 'Exo 2', sans-serif;">Backend</h3>
+                        <ul class="text-gray-300 space-y-3">
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse"></span>
+                                Node.js
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.2s;"></span>
+                                Express.js
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.4s;"></span>
+                                Python
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.6s;"></span>
+                                RESTful APIs
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.8s;"></span>
+                                Microservices
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Database -->
+                <div class="tech-card bg-surface/50 backdrop-blur-sm border border-accent/20 rounded-lg p-8 group hover:border-accent/50 transition-all duration-500 relative overflow-hidden">
+                    <!-- Animated Background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent/20 to-accent/40 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-accent group-hover:text-cyan-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-cyan-400 mb-6 group-hover:text-cyan-300 transition-colors tracking-wide" style="font-family: 'Exo 2', sans-serif;">Database</h3>
+                        <ul class="text-gray-300 space-y-3">
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse"></span>
+                                MongoDB
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.2s;"></span>
+                                PostgreSQL
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.4s;"></span>
+                                MySQL
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.6s;"></span>
+                                Redis
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.8s;"></span>
+                                Data Analytics
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business-Specific Integrations Section -->
+    <section class="relative z-10 py-20 px-4 bg-surface/30">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-black text-cyan-400 mb-6 tracking-tight" style="font-family: 'Orbitron', sans-serif; text-shadow: 0 0 30px rgba(0, 191, 255, 0.5);">
+                    Business-Specific Integrations
+                </h2>
+                <p class="text-2xl md:text-3xl text-gray-300 font-light tracking-wide" style="font-family: 'Inter', sans-serif;">
+                    Tailored solutions for different industries
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Gym Management -->
+                <div class="tech-card bg-gradient-to-br from-surface/60 to-surface/40 backdrop-blur-md border border-cyan-400/30 rounded-xl p-8 hover:border-cyan-400/60 transition-all duration-500 relative overflow-hidden group">
+                    <!-- Animated Background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <!-- Floating Particles -->
+                    <div class="absolute top-4 right-4 w-2 h-2 bg-cyan-400 rounded-full animate-pulse opacity-60"></div>
+                    <div class="absolute top-8 right-8 w-1 h-1 bg-cyan-300 rounded-full animate-pulse opacity-40" style="animation-delay: 1s;"></div>
+                    <div class="absolute bottom-6 right-6 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse opacity-50" style="animation-delay: 2s;"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 bg-gradient-to-br from-cyan-400/20 to-cyan-600/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 relative overflow-hidden">
+                            <svg class="w-10 h-10 text-cyan-400 group-hover:text-cyan-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            <!-- Animated Glow -->
+                            <div class="absolute inset-0 bg-gradient-to-r from-cyan-400/30 to-transparent animate-pulse"></div>
+                        </div>
+                        
+                        <h3 class="text-3xl font-bold text-cyan-400 mb-6 group-hover:text-cyan-300 transition-colors tracking-wide" style="font-family: 'Exo 2', sans-serif; text-shadow: 0 0 20px rgba(0, 191, 255, 0.3);">
+                            Gym Management
+                        </h3>
+                        
+                        <ul class="text-gray-300 space-y-3 mb-8">
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse"></span>
+                                Member registration & profiles
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.2s;"></span>
+                                Payment & billing management
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.4s;"></span>
+                                Class & trainer scheduling
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.6s;"></span>
+                                Equipment tracking
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.8s;"></span>
+                                Analytics & reports
+                            </li>
+                        </ul>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-cyan-400 font-bold text-lg tracking-wide" style="font-family: 'Exo 2', sans-serif; text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);">
+                                Active
+                            </span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
+                                <div class="w-2 h-2 bg-green-300 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coaching Management -->
+                <div class="tech-card bg-gradient-to-br from-surface/60 to-surface/40 backdrop-blur-md border border-cyan-400/30 rounded-xl p-8 hover:border-cyan-400/60 transition-all duration-500 relative overflow-hidden group">
+                    <!-- Animated Background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <!-- Floating Particles -->
+                    <div class="absolute top-4 right-4 w-2 h-2 bg-cyan-400 rounded-full animate-pulse opacity-60"></div>
+                    <div class="absolute top-8 right-8 w-1 h-1 bg-cyan-300 rounded-full animate-pulse opacity-40" style="animation-delay: 1s;"></div>
+                    <div class="absolute bottom-6 right-6 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse opacity-50" style="animation-delay: 2s;"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 bg-gradient-to-br from-cyan-400/20 to-cyan-600/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 relative overflow-hidden">
+                            <svg class="w-10 h-10 text-cyan-400 group-hover:text-cyan-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                            </svg>
+                            <!-- Animated Glow -->
+                            <div class="absolute inset-0 bg-gradient-to-r from-cyan-400/30 to-transparent animate-pulse"></div>
+                        </div>
+                        
+                        <h3 class="text-3xl font-bold text-cyan-400 mb-6 group-hover:text-cyan-300 transition-colors tracking-wide" style="font-family: 'Exo 2', sans-serif; text-shadow: 0 0 20px rgba(0, 191, 255, 0.3);">
+                            Coaching Management
+                        </h3>
+                        
+                        <ul class="text-gray-300 space-y-3 mb-8">
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse"></span>
+                                Student progress tracking
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.2s;"></span>
+                                Class scheduling system
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.4s;"></span>
+                                Payment & fee management
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.6s;"></span>
+                                Performance analytics
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.8s;"></span>
+                                Communication portal
+                            </li>
+                        </ul>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-cyan-400 font-bold text-lg tracking-wide" style="font-family: 'Exo 2', sans-serif; text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);">
+                                Active
+                            </span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
+                                <div class="w-2 h-2 bg-green-300 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photography Studio -->
+                <div class="tech-card bg-gradient-to-br from-surface/60 to-surface/40 backdrop-blur-md border border-cyan-400/30 rounded-xl p-8 hover:border-cyan-400/60 transition-all duration-500 relative overflow-hidden group">
+                    <!-- Animated Background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <!-- Floating Particles -->
+                    <div class="absolute top-4 right-4 w-2 h-2 bg-cyan-400 rounded-full animate-pulse opacity-60"></div>
+                    <div class="absolute top-8 right-8 w-1 h-1 bg-cyan-300 rounded-full animate-pulse opacity-40" style="animation-delay: 1s;"></div>
+                    <div class="absolute bottom-6 right-6 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse opacity-50" style="animation-delay: 2s;"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 bg-gradient-to-br from-cyan-400/20 to-cyan-600/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 relative overflow-hidden">
+                            <svg class="w-10 h-10 text-cyan-400 group-hover:text-cyan-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <!-- Animated Glow -->
+                            <div class="absolute inset-0 bg-gradient-to-r from-cyan-400/30 to-transparent animate-pulse"></div>
+                        </div>
+                        
+                        <h3 class="text-3xl font-bold text-cyan-400 mb-6 group-hover:text-cyan-300 transition-colors tracking-wide" style="font-family: 'Exo 2', sans-serif; text-shadow: 0 0 20px rgba(0, 191, 255, 0.3);">
+                            Photography Studio
+                        </h3>
+                        
+                        <ul class="text-gray-300 space-y-3 mb-8">
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse"></span>
+                                Client gallery management
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.2s;"></span>
+                                Online booking system
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.4s;"></span>
+                                Payment processing
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.6s;"></span>
+                                Portfolio showcase
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.8s;"></span>
+                                Client communication
+                            </li>
+                        </ul>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-cyan-400 font-bold text-lg tracking-wide" style="font-family: 'Exo 2', sans-serif; text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);">
+                                Active
+                            </span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
+                                <div class="w-2 h-2 bg-green-300 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Security & Privacy Section -->
+    <section class="relative z-10 py-20 px-4 overflow-hidden">
+        <!-- Animated Background -->
+        <div class="absolute inset-0">
+            <!-- Security Grid Pattern -->
+            <div class="absolute inset-0 opacity-5">
+                <div class="absolute inset-0" style="background-image: 
+                    linear-gradient(rgba(0, 191, 255, 0.3) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 191, 255, 0.3) 1px, transparent 1px);
+                    background-size: 30px 30px;"></div>
+            </div>
+            
+            <!-- Floating Security Icons -->
+            <div class="absolute top-20 left-20 w-12 h-12 opacity-10 animate-float">
+                <svg class="w-full h-full text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 1L3 5v6c0 5.55 3.84 9.95 9 11 5.16-1.05 9-5.45 9-11V5l-9-4z"/>
+                </svg>
+            </div>
+            <div class="absolute top-40 right-32 w-16 h-16 opacity-10 animate-float-delayed">
+                <svg class="w-full h-full text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+            </div>
+            <div class="absolute bottom-32 left-1/3 w-14 h-14 opacity-10 animate-float-slow">
+                <svg class="w-full h-full text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="container mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-6xl font-black text-cyan-400 mb-6 tracking-tight" style="font-family: 'Orbitron', sans-serif; text-shadow: 0 0 30px rgba(0, 191, 255, 0.5);">
+                    Data Security & Privacy
+                </h2>
+                <p class="text-2xl md:text-3xl text-gray-300 font-light tracking-wide" style="font-family: 'Inter', sans-serif;">
+                    Your data is 
+                    <span class="text-cyan-400 font-bold animate-pulse bg-gradient-to-r from-cyan-400 to-accent bg-clip-text text-transparent" style="text-shadow: 0 0 20px rgba(0, 191, 255, 0.5);">100% secure</span>
+                    with us
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Data Encryption -->
+                <div class="tech-card bg-gradient-to-br from-surface/60 to-surface/40 backdrop-blur-md border border-cyan-400/30 rounded-xl p-8 hover:border-cyan-400/60 transition-all duration-500 relative overflow-hidden group">
+                    <!-- Animated Background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <!-- Floating Particles -->
+                    <div class="absolute top-4 right-4 w-2 h-2 bg-cyan-400 rounded-full animate-pulse opacity-60"></div>
+                    <div class="absolute top-8 right-8 w-1 h-1 bg-cyan-300 rounded-full animate-pulse opacity-40" style="animation-delay: 1s;"></div>
+                    <div class="absolute bottom-6 right-6 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse opacity-50" style="animation-delay: 2s;"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 bg-gradient-to-br from-cyan-400/20 to-cyan-600/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 relative overflow-hidden">
+                            <svg class="w-10 h-10 text-cyan-400 group-hover:text-cyan-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                            <!-- Animated Glow -->
+                            <div class="absolute inset-0 bg-gradient-to-r from-cyan-400/30 to-transparent animate-pulse"></div>
+                        </div>
+                        
+                        <h3 class="text-3xl font-bold text-cyan-400 mb-6 group-hover:text-cyan-300 transition-colors tracking-wide" style="font-family: 'Exo 2', sans-serif; text-shadow: 0 0 20px rgba(0, 191, 255, 0.3);">
+                            End-to-End Encryption
+                        </h3>
+                        
+                        <ul class="text-gray-300 space-y-3 mb-8">
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse"></span>
+                                AES-256 encryption standard
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.2s;"></span>
+                                SSL/TLS secure connections
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.4s;"></span>
+                                Data encrypted at rest
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.6s;"></span>
+                                Secure key management
+                            </li>
+                        </ul>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-cyan-400 font-bold text-lg tracking-wide" style="font-family: 'Exo 2', sans-serif; text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);">
+                                Military Grade
+                            </span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
+                                <div class="w-2 h-2 bg-green-300 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- No Third Party -->
+                <div class="tech-card bg-gradient-to-br from-surface/60 to-surface/40 backdrop-blur-md border border-cyan-400/30 rounded-xl p-8 hover:border-cyan-400/60 transition-all duration-500 relative overflow-hidden group">
+                    <!-- Animated Background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <!-- Floating Particles -->
+                    <div class="absolute top-4 right-4 w-2 h-2 bg-cyan-400 rounded-full animate-pulse opacity-60"></div>
+                    <div class="absolute top-8 right-8 w-1 h-1 bg-cyan-300 rounded-full animate-pulse opacity-40" style="animation-delay: 1s;"></div>
+                    <div class="absolute bottom-6 right-6 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse opacity-50" style="animation-delay: 2s;"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 bg-gradient-to-br from-cyan-400/20 to-cyan-600/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 relative overflow-hidden">
+                            <svg class="w-10 h-10 text-cyan-400 group-hover:text-cyan-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                            <!-- Animated Glow -->
+                            <div class="absolute inset-0 bg-gradient-to-r from-cyan-400/30 to-transparent animate-pulse"></div>
+                        </div>
+                        
+                        <h3 class="text-3xl font-bold text-cyan-400 mb-6 group-hover:text-cyan-300 transition-colors tracking-wide" style="font-family: 'Exo 2', sans-serif; text-shadow: 0 0 20px rgba(0, 191, 255, 0.3);">
+                            Zero Third-Party Access
+                        </h3>
+                        
+                        <ul class="text-gray-300 space-y-3 mb-8">
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse"></span>
+                                No external data sharing
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.2s;"></span>
+                                Private cloud infrastructure
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.4s;"></span>
+                                No analytics tracking
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.6s;"></span>
+                                Complete data isolation
+                            </li>
+                        </ul>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-cyan-400 font-bold text-lg tracking-wide" style="font-family: 'Exo 2', sans-serif; text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);">
+                                Private Only
+                            </span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
+                                <div class="w-2 h-2 bg-green-300 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Full Control -->
+                <div class="tech-card bg-gradient-to-br from-surface/60 to-surface/40 backdrop-blur-md border border-cyan-400/30 rounded-xl p-8 hover:border-cyan-400/60 transition-all duration-500 relative overflow-hidden group">
+                    <!-- Animated Background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <!-- Floating Particles -->
+                    <div class="absolute top-4 right-4 w-2 h-2 bg-cyan-400 rounded-full animate-pulse opacity-60"></div>
+                    <div class="absolute top-8 right-8 w-1 h-1 bg-cyan-300 rounded-full animate-pulse opacity-40" style="animation-delay: 1s;"></div>
+                    <div class="absolute bottom-6 right-6 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse opacity-50" style="animation-delay: 2s;"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="w-20 h-20 bg-gradient-to-br from-cyan-400/20 to-cyan-600/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 relative overflow-hidden">
+                            <svg class="w-10 h-10 text-cyan-400 group-hover:text-cyan-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <!-- Animated Glow -->
+                            <div class="absolute inset-0 bg-gradient-to-r from-cyan-400/30 to-transparent animate-pulse"></div>
+                        </div>
+                        
+                        <h3 class="text-3xl font-bold text-cyan-400 mb-6 group-hover:text-cyan-300 transition-colors tracking-wide" style="font-family: 'Exo 2', sans-serif; text-shadow: 0 0 20px rgba(0, 191, 255, 0.3);">
+                            Complete Control
+                        </h3>
+                        
+                        <ul class="text-gray-300 space-y-3 mb-8">
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse"></span>
+                                Full data ownership
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.2s;"></span>
+                                Custom access controls
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.4s;"></span>
+                                Data export anytime
+                            </li>
+                            <li class="flex items-center group-hover:text-cyan-300 transition-colors text-base font-medium" style="font-family: 'Inter', sans-serif;">
+                                <span class="w-2 h-2 bg-cyan-400 rounded-full mr-4 animate-pulse" style="animation-delay: 0.6s;"></span>
+                                Admin dashboard access
+                            </li>
+                        </ul>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-cyan-400 font-bold text-lg tracking-wide" style="font-family: 'Exo 2', sans-serif; text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);">
+                                Your Rules
+                            </span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/50"></div>
+                                <div class="w-2 h-2 bg-green-300 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative z-10 py-20 px-4">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold text-accent mb-6">Ready to Build Your Custom Solution?</h2>
+            <p class="text-xl text-text-secondary mb-8 max-w-3xl mx-auto">
+                Let's discuss your project and create a custom web application that transforms your business operations.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact_hub.html" class="bg-accent text-background px-8 py-4 rounded-lg font-semibold hover:bg-accent/90 transition-colors">
+                    Start Your Project
+                </a>
+                <a href="services_showcase.html" class="border border-accent text-accent px-8 py-4 rounded-lg font-semibold hover:bg-accent hover:text-background transition-colors">
+                    View Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-surface/50 border-t border-glass-border py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-accent to-accent-300 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-primary font-bold" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 9.95 9 11 5.16-1.05 9-5.45 9-11V7l-10-5z"/>
+                            </svg>
+                        </div>
+                        <span class="font-display text-2xl font-bold text-gradient">DDK TECH</span>
+                    </div>
+                    <p class="text-text-secondary mb-6 max-w-md">
+                        West Bengal's premier custom business app developer, transforming local businesses through cutting-edge technology and innovative solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/DdkTechOfficial" target="_blank" class="w-10 h-10 bg-surface rounded-lg flex items-center justify-center hover:bg-accent hover:text-primary transition-smooth" title="Follow us on Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold text-text-primary mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="homepage.html" class="text-text-secondary hover:text-accent transition-smooth">Home</a></li>
+                        <li><a href="services_showcase.html" class="text-text-secondary hover:text-accent transition-smooth">Services</a></li>
+                        <li><a href="about_experience.html" class="text-text-secondary hover:text-accent transition-smooth">About Us</a></li>
+                        <li><a href="technology_center.html" class="text-text-secondary hover:text-accent transition-smooth">Technology</a></li>
+                        <li><a href="contact_hub.html" class="text-text-secondary hover:text-accent transition-smooth">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="font-semibold text-text-primary mb-4">Get in Touch</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center space-x-3">
+                            <div class="w-5 h-5 text-accent">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
+                            </div>
+                            <span class="text-text-secondary">Kolkata, West Bengal</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <div class="w-5 h-5 text-accent">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                                </svg>
+                            </div>
+                            <a href="https://wa.me/918820746227" class="text-text-secondary hover:text-accent transition-smooth">WhatsApp: +91-8820746227</a>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <div class="w-5 h-5 text-accent">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                            </div>
+                            <a href="mailto:support@ddktechofficial.info" class="text-text-secondary hover:text-accent transition-smooth">support@ddktechofficial.info</a>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <div class="w-5 h-5 text-accent">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                            </div>
+                            <a href="https://www.facebook.com/DdkTechOfficial" target="_blank" class="text-text-secondary hover:text-accent transition-smooth">Follow us on Facebook</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-glass-border mt-12 pt-8 text-center">
+                <p class="text-text-secondary">© 2025 DDK TECH. All Rights Reserved. | Custom Business Apps for West Bengal</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+/* Matrix Rain Animation CSS */
+.matrix-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.matrix-column {
+    position: absolute;
+    top: -100px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+    line-height: 1.2;
+    white-space: nowrap;
+    animation: matrixFall linear infinite;
+    opacity: 0.35;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+@keyframes matrixFall {
+    0% {
+        transform: translateY(-100px) translateZ(0px) rotateX(0deg);
+        opacity: 0.35;
+    }
+    25% {
+        transform: translateY(-50px) translateZ(20px) rotateX(5deg);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translateY(0px) translateZ(40px) rotateX(10deg);
+        opacity: 0.45;
+    }
+    75% {
+        transform: translateY(50px) translateZ(20px) rotateX(5deg);
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(100vh) translateZ(0px) rotateX(0deg);
+        opacity: 0;
+    }
+}
+
+/* Different speeds for columns */
+.matrix-column.slow {
+    animation-duration: 12s;
+}
+
+.matrix-column.medium {
+    animation-duration: 10s;
+}
+
+.matrix-column.fast {
+    animation-duration: 8s;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .matrix-container {
+        top: 80px; /* Start after menu header on mobile */
+        left: 0;
+        width: 100%;
+        height: calc(100% - 80px); /* Adjust height to account for header */
+        z-index: 1;
+    }
+    
+    .matrix-column {
+        font-size: 10px;
+        line-height: 1.1;
+        top: -50px; /* Start higher on mobile */
+    }
+    
+    /* Faster animation speeds for mobile */
+    .matrix-column.slow {
+        animation-duration: 8s;
+    }
+
+    .matrix-column.medium {
+        animation-duration: 6s;
+    }
+
+    .matrix-column.fast {
+        animation-duration: 4s;
+    }
+}
+
+@media (max-width: 480px) {
+    .matrix-container {
+        top: 70px; /* Start after menu header on small mobile */
+        height: calc(100% - 70px); /* Adjust height for smaller header */
+    }
+    
+    .matrix-column {
+        font-size: 8px;
+        line-height: 1.0;
+    }
+    
+    /* Even faster animation speeds for small mobile */
+    .matrix-column.slow {
+        animation-duration: 6s;
+    }
+
+    .matrix-column.medium {
+        animation-duration: 4s;
+    }
+
+    .matrix-column.fast {
+        animation-duration: 3s;
+    }
+}

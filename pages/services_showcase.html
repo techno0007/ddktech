@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services Showcase - DDK TECH Ultra | Custom Business Web Apps & Websites</title>
+    <meta name="description" content="Explore DDK TECH's specialized solutions: gym management web apps, pharmacy automation web apps, photography studio web apps, and professional website development. Interactive demos and Bengali business case studies." />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Custom Business Web Application Development Services",
+        "description": "Professional web application development services for gym management, pharmacy automation, photography studios, and business websites.",
+        "provider": {
+            "@type": "Organization",
+            "name": "DDK TECH",
+            "url": "https://ddktechofficial.github.io/ddk-tech-website"
+        },
+        "serviceType": "Web Application Development",
+        "areaServed": {
+            "@type": "State",
+            "name": "West Bengal"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Business Web Application Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Gym Management System",
+                        "description": "Complete gym management web application with member tracking, billing, and analytics"
+                    },
+                    "priceRange": "₹45,000 - ₹65,000"
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Pharmacy Management System",
+                        "description": "Pharmacy automation with inventory control and prescription tracking"
+                    },
+                    "priceRange": "₹55,000 - ₹75,000"
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Photography Studio Management",
+                        "description": "Photography studio solutions with booking and gallery management"
+                    },
+                    "priceRange": "₹35,000 - ₹55,000"
+                }
+            ]
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../css/main.css?v=48" />
+    <style>
+        /* Mobile Space Optimization */
+        @media (max-width: 768px) {
+            /* Reduce section padding on mobile */
+            .py-12 {
+                padding-top: 1.5rem !important;
+                padding-bottom: 1.5rem !important;
+            }
+            
+            /* Reduce margins between elements */
+            .mb-6 {
+                margin-bottom: 1rem !important;
+            }
+            
+            .mb-4 {
+                margin-bottom: 0.75rem !important;
+            }
+            
+            /* Reduce grid gaps */
+            .gap-8 {
+                gap: 1rem !important;
+            }
+            
+            .gap-6 {
+                gap: 0.75rem !important;
+            }
+            
+            /* Reduce feature card padding */
+            .p-4 {
+                padding: 0.75rem !important;
+            }
+            
+            /* Reduce button padding */
+            .px-8 {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            
+            .py-4 {
+                padding-top: 0.75rem !important;
+                padding-bottom: 0.75rem !important;
+            }
+            
+            /* Reduce heading sizes on mobile */
+            .text-4xl {
+                font-size: 1.875rem !important;
+            }
+            
+            .text-5xl {
+                font-size: 2.25rem !important;
+            }
+            
+            .text-xl {
+                font-size: 1rem !important;
+            }
+            
+            /* Reduce icon sizes */
+            .w-12 {
+                width: 2.5rem !important;
+            }
+            
+            .h-12 {
+                height: 2.5rem !important;
+            }
+            
+            /* Reduce space between icon and text */
+            .space-x-4 {
+                gap: 0.75rem !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Even more compact for small mobile */
+            .py-12 {
+                padding-top: 1rem !important;
+                padding-bottom: 1rem !important;
+            }
+            
+            .mb-6 {
+                margin-bottom: 0.75rem !important;
+            }
+            
+            .mb-4 {
+                margin-bottom: 0.5rem !important;
+            }
+            
+            .gap-8 {
+                gap: 0.75rem !important;
+            }
+            
+            .gap-6 {
+                gap: 0.5rem !important;
+            }
+            
+            .p-4 {
+                padding: 0.5rem !important;
+            }
+            
+            .text-4xl {
+                font-size: 1.5rem !important;
+            }
+            
+            .text-5xl {
+                font-size: 1.875rem !important;
+            }
+            
+            .text-xl {
+                font-size: 0.875rem !important;
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fddktechu8467back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background text-text-primary overflow-x-hidden">
+    <!-- Particle Background -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0">
+        <canvas id="particleCanvas" class="w-full h-full opacity-20"></canvas>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 w-full z-50 transition-all duration-500" id="navbar">
+        <nav class="glass border-b border-glass px-6 py-4 md:py-0.5">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 md:space-x-1">
+                    <img src="../public/logo.png?v=1" alt="DDK TECH Logo" class="h-8 md:h-4 w-auto opacity-30 object-contain">
+                    <span class="font-display text-2xl md:text-lg font-bold text-gradient">DDK TECH</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-accent transition-smooth">Home</a>
+                    <a href="services_showcase.html" class="text-accent font-medium hover:text-accent-300 transition-smooth">Services</a>
+                    <a href="about_experience.html" class="text-text-secondary hover:text-accent transition-smooth">About</a>
+                    <a href="technology_center.html" class="text-text-secondary hover:text-accent transition-smooth">Technology</a>
+                    <a href="contact_hub.html" class="btn-primary">Get Started</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-text-primary" id="mobileMenuBtn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobileMenu">
+                <div class="px-6 py-4 space-y-4 border-t border-glass-border">
+                    <a href="homepage.html" class="block text-text-secondary hover:text-accent transition-smooth">Home</a>
+                    <a href="services_showcase.html" class="block text-accent font-medium">Services</a>
+                    <a href="about_experience.html" class="block text-text-secondary hover:text-accent transition-smooth">About</a>
+                    <a href="technology_center.html" class="block text-text-secondary hover:text-accent transition-smooth">Technology</a>
+                    <a href="contact_hub.html" class="block btn-primary text-center">Get Started</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Hero Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-background via-background-800 to-secondary-900"></div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-10 w-20 h-20 bg-accent/10 rounded-full animate-float"></div>
+        <div class="absolute top-40 right-20 w-32 h-32 bg-accent/5 rounded-full animate-float" style="animation-delay: -2s;"></div>
+        <div class="absolute bottom-40 left-20 w-16 h-16 bg-accent/15 rounded-full animate-float" style="animation-delay: -4s;"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+            <!-- Hero Content -->
+            <div class="hero-content opacity-0">
+                <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    <span class="text-gradient">Specialized Solutions</span><br />
+                    <span class="text-text-primary">For Every Business</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-text-secondary mb-8 max-w-3xl mx-auto">
+                    Custom-built business web applications and professional websites that streamline operations and accelerate growth for Bengali businesses across multiple industries
+                </p>
+
+                <!-- Service Navigation -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button onclick="scrollToSection('gym')" class="btn-primary px-6 py-3 glow-accent">
+                        Gym Management
+                    </button>
+                    <button onclick="scrollToSection('photography-business')" class="btn-secondary px-6 py-3">
+                        Photography Business
+                    </button>
+                    <button onclick="scrollToSection('coaching')" class="btn-secondary px-6 py-3">
+                        Coaching Center
+                    </button>
+                    <button onclick="scrollToSection('photography-web')" class="btn-secondary px-6 py-3">
+                        Photography Web App
+                    </button>
+                    <button onclick="scrollToSection('appointment')" class="btn-secondary px-6 py-3">
+                        Client Appointment
+                    </button>
+                    <button onclick="scrollToSection('more')" class="btn-secondary px-6 py-3">
+                        And Lots More...
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Gym Management Section -->
+    <section id="gym" class="relative min-h-screen py-20 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-accent/5 via-transparent to-accent/10"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Content -->
+                <div class="gym-content">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-accent to-accent-300 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/>
+                            </svg>
+                        </div>
+                        <h2 class="font-display text-4xl md:text-5xl font-bold text-gradient">Gym Management</h2>
+                    </div>
+                    
+                    <p class="text-xl text-text-secondary mb-8">
+                        Complete fitness center management solution designed for Bengali gyms, from small neighborhood centers to large fitness chains.
+                    </p>
+
+                    <!-- Feature Grid -->
+                    <div class="grid md:grid-cols-2 gap-4 mb-8">
+                        <div class="feature-card card-glass p-4 hover:shadow-glow transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <div class="w-8 h-8 bg-accent/60 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-semibold text-text-primary">Member Portal</h3>
+                            </div>
+                            <p class="text-text-secondary text-sm">Digital check-in, workout tracking, and membership management</p>
+                        </div>
+
+
+                        <div class="feature-card card-glass p-4 hover:shadow-glow transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <div class="w-8 h-8 bg-accent/60 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-semibold text-text-primary">Class Scheduling</h3>
+                            </div>
+                            <p class="text-text-secondary text-sm">Trainer scheduling, class bookings, and capacity management</p>
+                        </div>
+
+                        <div class="feature-card card-glass p-4 hover:shadow-glow transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <div class="w-8 h-8 bg-accent/60 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-semibold text-text-primary">Analytics Dashboard</h3>
+                            </div>
+                            <p class="text-text-secondary text-sm">Revenue tracking, member insights, and growth analytics</p>
+                        </div>
+                    </div>
+
+                    <!-- Pricing & Timeline -->
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <div class="card-glass p-4 flex-1">
+                            <div class="text-2xl font-bold text-gradient mb-2">Starting from ₹2,000</div>
+                            <div class="text-text-secondary text-sm">Starting investment</div>
+                        </div>
+                        <div class="card-glass p-4 flex-1">
+                            <div class="text-2xl font-bold text-gradient mb-2">7-14 Days</div>
+                            <div class="text-text-secondary text-sm">Delivery timeline</div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="contact_hub.html" class="btn-primary px-6 py-3 glow-accent">
+                            Get Gym Solution
+                        </a>
+                        <button onclick="openROICalculator('gym')" class="btn-secondary px-6 py-3">
+                            Calculate ROI
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interactive Demo -->
+                <div class="gym-demo relative">
+                    <div class="card-glass p-6 rounded-2xl">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="font-semibold text-text-primary">Gym Dashboard</h3>
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 bg-error rounded-full"></div>
+                                <div class="w-3 h-3 bg-warning rounded-full"></div>
+                                <div class="w-3 h-3 bg-success rounded-full"></div>
+                            </div>
+                        </div>
+
+                        <!-- Demo Interface -->
+                        <div class="space-y-4">
+                            <div class="bg-surface/50 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="text-text-secondary text-sm">Today's Check-ins</span>
+                                    <span class="text-2xl font-bold text-accent">127</span>
+                                </div>
+                                <div class="w-full bg-surface rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-accent to-accent-300 h-2 rounded-full" style="width: 78%"></div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-surface/50 rounded-lg p-4 text-center">
+                                    <div class="text-xl font-bold text-text-primary">₹1,24,500</div>
+                                    <div class="text-text-secondary text-sm">Monthly Revenue</div>
+                                </div>
+                                <div class="bg-surface/50 rounded-lg p-4 text-center">
+                                    <div class="text-xl font-bold text-text-primary">342</div>
+                                    <div class="text-text-secondary text-sm">Active Members</div>
+                                </div>
+                            </div>
+
+                            <div class="bg-surface/50 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-text-secondary text-sm">Recent Activity</span>
+                                    <span class="text-accent text-sm">Live</span>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-2 h-2 bg-success rounded-full animate-pulse-glow"></div>
+                                        <span class="text-text-primary text-sm">Member checked in</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-2 h-2 bg-accent rounded-full animate-pulse-glow"></div>
+                                        <span class="text-text-primary text-sm">Payment received: ₹2,500</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Testimonial -->
+                    <div class="absolute -right-4 -bottom-4 card-glass p-4 max-w-xs animate-float">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div>
+                                <div class="font-semibold text-text-primary text-sm">Owner</div>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary text-sm italic">"Member management became 300% more efficient. Revenue tracking is now automated!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coaching Center Section -->
+    <section id="coaching" class="relative min-h-screen py-20 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-l from-secondary/10 via-transparent to-secondary/5"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Interactive Demo -->
+                <div class="coaching-demo relative order-2 lg:order-1">
+                    <div class="card-glass p-6 rounded-2xl">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="font-semibold text-text-primary">EduCenter Management</h3>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-success rounded-full animate-pulse-glow"></div>
+                                <span class="text-success text-sm">Online</span>
+                            </div>
+                        </div>
+
+                        <!-- Student Management Demo -->
+                        <div class="space-y-4">
+                            <div class="bg-surface/50 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="text-text-secondary text-sm">Today's Classes</span>
+                                    <span class="bg-accent/20 text-accent px-2 py-1 rounded text-xs">8 Classes</span>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-primary text-sm">Mathematics - Grade 10</span>
+                                        <span class="text-accent text-sm">2:00 PM</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-primary text-sm">Physics - Grade 12</span>
+                                        <span class="text-accent text-sm">4:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-surface/50 rounded-lg p-4 text-center">
+                                    <div class="text-xl font-bold text-text-primary">156</div>
+                                    <div class="text-text-secondary text-sm">Active Students</div>
+                                </div>
+                                <div class="bg-surface/50 rounded-lg p-4 text-center">
+                                    <div class="text-xl font-bold text-text-primary">₹1,85,400</div>
+                                    <div class="text-text-secondary text-sm">Monthly Revenue</div>
+                                </div>
+                            </div>
+
+                            <div class="bg-surface/50 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="text-text-secondary text-sm">Recent Admissions</span>
+                                    <button class="text-accent text-sm hover:text-accent-300 transition-smooth">View All</button>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <div class="text-text-primary text-sm">Priya Sharma</div>
+                                            <div class="text-text-secondary text-xs">Class: 10th Science</div>
+                                        </div>
+                                        <span class="text-accent text-sm">₹2,500</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <div class="text-text-primary text-sm">Rahul Kumar</div>
+                                            <div class="text-text-secondary text-xs">Class: 12th Commerce</div>
+                                        </div>
+                                        <span class="text-accent text-sm">₹3,000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Success Metric -->
+                    <div class="absolute -left-4 -top-4 card-glass p-4 max-w-xs animate-float" style="animation-delay: -1s;">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-gradient mb-1">85%</div>
+                            <div class="text-text-secondary text-sm">Student Success Rate</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="coaching-content order-1 lg:order-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-secondary-400 to-secondary-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <h2 class="font-display text-4xl md:text-5xl font-bold text-gradient">Coaching Center</h2>
+                    </div>
+                    
+                    <p class="text-xl text-text-secondary mb-8">
+                        Complete student management and course scheduling platform designed for Bengali coaching centers, from small tuition classes to large educational institutes.
+                    </p>
+
+                    <!-- Feature Grid -->
+                    <div class="grid md:grid-cols-2 gap-4 mb-8">
+                        <div class="feature-card card-glass p-4 hover:shadow-glow transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <div class="w-8 h-8 bg-secondary-400/60 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-secondary-400" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-semibold text-text-primary">Student Portal</h3>
+                            </div>
+                            <p class="text-text-secondary text-sm">Digital attendance, progress tracking, and assignment management</p>
+                        </div>
+
+                        <div class="feature-card card-glass p-4 hover:shadow-glow transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <div class="w-8 h-8 bg-secondary-400/60 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-secondary-400" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-semibold text-text-primary">Class Scheduling</h3>
+                            </div>
+                            <p class="text-text-secondary text-sm">Automated timetable management and teacher allocation</p>
+                        </div>
+
+                        <div class="feature-card card-glass p-4 hover:shadow-glow transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <div class="w-8 h-8 bg-secondary-400/60 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-secondary-400" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-semibold text-text-primary">Progress Tracking</h3>
+                            </div>
+                            <p class="text-text-secondary text-sm">Performance analytics and parent communication system</p>
+                        </div>
+
+                        <div class="feature-card card-glass p-4 hover:shadow-glow transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <div class="w-8 h-8 bg-secondary-400/60 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-secondary-400" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1L13.5 2.5L16.17 5.17L10.5 10.84L11.92 12.25L15.92 8.25L18.42 10.75L21 9Z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-semibold text-text-primary">Fee Management</h3>
+                            </div>
+                            <p class="text-text-secondary text-sm">Automated fee collection and payment tracking system</p>
+                        </div>
+                    </div>
+
+                    <!-- Pricing & Timeline -->
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <div class="card-glass p-4 flex-1">
+                            <div class="text-2xl font-bold text-gradient mb-2">Starting from ₹2,000</div>
+                            <div class="text-text-secondary text-sm">Starting investment</div>
+                        </div>
+                        <div class="card-glass p-4 flex-1">
+                            <div class="text-2xl font-bold text-gradient mb-2">7-14 Days</div>
+                            <div class="text-text-secondary text-sm">Delivery timeline</div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="contact_hub.html" class="btn-primary px-6 py-3 glow-accent">
+                            Get Coaching Solution
+                        </a>
+                        <button onclick="openROICalculator('coaching')" class="btn-secondary px-6 py-3">
+                            Calculate ROI
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photography Business Section -->
+    <section id="photography-business" class="relative min-h-screen py-20 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-warning/5 via-transparent to-warning/10"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Content -->
+                <div class="photography-content">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-warning-400 to-warning-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 15.5c1.93 0 3.5-1.57 3.5-3.5s-1.57-3.5-3.5-3.5-3.5 1.57-3.5 3.5 1.57 3.5 3.5 3.5z"/>
+                                <path d="M17.5 7h-3l-1.5-2h-3L8.5 7h-3C4.67 7 4 7.67 4 8.5v8c0 .83.67 1.5 1.5 1.5h13c.83 0 1.5-.67 1.5-1.5v-8c0-.83-.67-1.5-1.5-1.5z"/>
+                            </svg>
+                        </div>
+                        <h2 class="font-display text-4xl md:text-5xl font-bold text-gradient">Photography Business</h2>
+                    </div>
+                    
+                    <p class="text-xl text-text-secondary mb-8">
+                        Comprehensive studio management platform designed for Bengali photography businesses, from portrait studios to event photographers.
+                    </p>
+
+                    <!-- Feature Grid -->
+                    <div class="grid md:grid-cols-2 gap-4 mb-8">
+                        <div class="feature-card card-glass p-4 hover:shadow-glow transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <div class="w-8 h-8 bg-warning-400/60 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-warning-400" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-semibold text-text-primary">Booking System</h3>
+                            </div>
+                            <p class="text-text-secondary text-sm">Online appointment scheduling with calendar integration</p>
+                        </div>
+
+                        <div class="feature-card card-glass p-4 hover:shadow-glow transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <div class="w-8 h-8 bg-warning-400/60 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-warning-400" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-semibold text-text-primary">Client Galleries</h3>
+                            </div>
+                            <p class="text-text-secondary text-sm">Private photo galleries with download and sharing options</p>
+                        </div>
+
+                        <div class="feature-card card-glass p-4 hover:shadow-glow transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <div class="w-8 h-8 bg-warning-400/60 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-warning-400" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1L13.5 2.5L16.17 5.17L10.5 10.84L11.92 12.25L15.92 8.25L18.42 10.75L21 9Z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-semibold text-text-primary">Payment Processing</h3>
+                            </div>
+                            <p class="text-text-secondary text-sm">Advance booking payments and package management</p>
+                        </div>
+
+                        <div class="feature-card card-glass p-4 hover:shadow-glow transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <div class="w-8 h-8 bg-warning-400/60 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-warning-400" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-semibold text-text-primary">Workflow Automation</h3>
+                            </div>
+                            <p class="text-text-secondary text-sm">Automated client communication and delivery tracking</p>
+                        </div>
+                    </div>
+
+                    <!-- Pricing & Timeline -->
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <div class="card-glass p-4 flex-1">
+                            <div class="text-2xl font-bold text-gradient mb-2">Starting from ₹2,000</div>
+                            <div class="text-text-secondary text-sm">Starting investment</div>
+                            <div class="text-accent text-sm font-bold mt-2 bg-accent/10 px-2 py-1 rounded border border-accent/30">✨ Flexible Easy EMI Available</div>
+                        </div>
+                        <div class="card-glass p-4 flex-1">
+                            <div class="text-2xl font-bold text-gradient mb-2">7-14 Days</div>
+                            <div class="text-text-secondary text-sm">Delivery timeline</div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="contact_hub.html" class="btn-primary px-6 py-3 glow-accent">
+                            Get Studio Solution
+                        </a>
+                        <button onclick="openROICalculator('photography')" class="btn-secondary px-6 py-3">
+                            Calculate ROI
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interactive Demo -->
+                <div class="photography-demo relative">
+                    <div class="card-glass p-6 rounded-2xl">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="font-semibold text-text-primary">Photography Dashboard</h3>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-warning rounded-full animate-pulse-glow"></div>
+                                <span class="text-warning text-sm">Busy</span>
+                            </div>
+                        </div>
+
+                        <!-- Studio Management Demo -->
+                        <div class="space-y-4">
+                            <div class="bg-surface/50 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="text-text-secondary text-sm">Today's Sessions</span>
+                                    <span class="text-2xl font-bold text-warning">8</span>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-primary text-sm">Wedding Shoot - Priya & Arjun</span>
+                                        <span class="text-success text-sm">Completed</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-primary text-sm">Portrait Session - Ravi Das</span>
+                                        <span class="text-accent text-sm">In Progress</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-surface/50 rounded-lg p-4 text-center">
+                                    <div class="text-xl font-bold text-text-primary">₹3,24,500</div>
+                                    <div class="text-text-secondary text-sm">Monthly Revenue</div>
+                                </div>
+                                <div class="bg-surface/50 rounded-lg p-4 text-center">
+                                    <div class="text-xl font-bold text-text-primary">45</div>
+                                    <div class="text-text-secondary text-sm">Active Projects</div>
+                                </div>
+                            </div>
+
+                                </div>
+                    </div>
+
+                    <!-- Floating Client Review -->
+                    <div class="absolute -right-4 -bottom-4 card-glass p-4 max-w-xs animate-float" style="animation-delay: -2s;">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <div>
+                                <div class="font-semibold text-text-primary text-sm">Owner</div>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary text-sm italic">"Client booking increased by 250%. Gallery management is now seamless!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Website Development Section -->
+    <section id="website" class="relative min-h-screen py-12 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-l from-info/10 via-transparent to-info/5"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
+                <!-- Content -->
+                <div class="order-2 lg:order-1">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-info to-info-300 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                        </svg>
+                                    </div>
+                        <h2 class="font-display text-4xl md:text-5xl font-bold text-gradient">Website Development</h2>
+                    </div>
+                    
+                    <p class="text-xl text-text-secondary mb-6">
+                        Professional websites that showcase your Bengali business with modern design, mobile responsiveness, and SEO optimization for maximum online visibility.
+                    </p>
+
+                    <!-- Key Features -->
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="feature-card card-glass p-4 hover:shadow-glow transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <div class="w-8 h-8 bg-info/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-info" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                        </svg>
+                                    </div>
+                                <h3 class="font-semibold text-text-primary">Responsive Design</h3>
+                            </div>
+                            <p class="text-text-secondary text-sm">Perfect display on all devices - mobile, tablet, and desktop</p>
+                        </div>
+
+                        <div class="feature-card card-glass p-4 hover:shadow-glow transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <div class="w-8 h-8 bg-info/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-info" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/>
+                                        </svg>
+                                    </div>
+                                <h3 class="font-semibold text-text-primary">SEO Optimized</h3>
+                                </div>
+                            <p class="text-text-secondary text-sm">Built for search engines to help customers find your business</p>
+                            </div>
+
+                        <div class="feature-card card-glass p-4 hover:shadow-glow transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <div class="w-8 h-8 bg-info/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-info" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M13.5 2c-5.621 0-10.211 4.443-10.475 10h3.5l-4 4-4-4h3.5C2.289 6.443 6.879 2 12.5 2s10.211 4.443 10.475 10h-3.5l4 4 4-4h-3.5C23.711 6.443 19.121 2 13.5 2z"/>
+                                    </svg>
+                        </div>
+                                <h3 class="font-semibold text-text-primary">Fast Loading</h3>
+                            </div>
+                            <p class="text-text-secondary text-sm">Optimized for speed to keep visitors engaged</p>
+                    </div>
+
+                        <div class="feature-card card-glass p-4 hover:shadow-glow transition-all duration-300">
+                        <div class="flex items-center space-x-3 mb-3">
+                                <div class="w-8 h-8 bg-info/20 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-info" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                            </div>
+                                <h3 class="font-semibold text-text-primary">Bengali Friendly</h3>
+                        </div>
+                            <p class="text-text-secondary text-sm">Cultural understanding and local business focus</p>
+                    </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="openROICalculator('website')" class="btn-primary px-8 py-4 glow-accent">
+                            Calculate Website ROI
+                        </button>
+                        <a href="contact_hub.html" class="btn-secondary px-8 py-4">
+                            Get Your Website
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Visual/Image -->
+                <div class="order-1 lg:order-2">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-info/20 to-info/10 rounded-2xl transform rotate-3"></div>
+                        <div class="relative bg-surface/50 backdrop-blur-sm rounded-2xl p-8 border border-glass-border">
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 bg-success rounded-full"></div>
+                                    <div class="w-3 h-3 bg-warning rounded-full"></div>
+                                    <div class="w-3 h-3 bg-error rounded-full"></div>
+                                </div>
+                                <div class="h-4 bg-info/20 rounded"></div>
+                                <div class="h-4 bg-info/30 rounded w-3/4"></div>
+                                <div class="h-4 bg-info/20 rounded w-1/2"></div>
+                                <div class="grid grid-cols-3 gap-2 mt-6">
+                                    <div class="h-16 bg-info/20 rounded"></div>
+                                    <div class="h-16 bg-info/30 rounded"></div>
+                                    <div class="h-16 bg-info/20 rounded"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Matrix Section -->
+    <section class="py-20 bg-surface/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+                    <span class="text-text-primary">Why Choose</span><br />
+                    <span class="text-gradient">DDK TECH Solutions?</span>
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    Compare our specialized solutions against generic alternatives and see the difference
+                </p>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="card-glass rounded-2xl overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-surface/50">
+                            <tr>
+                                <th class="text-left p-6 text-text-primary font-semibold">Features</th>
+                                <th class="text-center p-6 text-accent font-semibold">DDK TECH</th>
+                                <th class="text-center p-6 text-text-secondary font-semibold">Generic Solutions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-glass-border">
+                            <tr>
+                                <td class="p-6 text-text-primary">Bengali Language Support</td>
+                                <td class="p-6 text-center">
+                                    <svg class="w-6 h-6 text-success mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                </td>
+                                <td class="p-6 text-center">
+                                    <svg class="w-6 h-6 text-error mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                    </svg>
+                                </td>
+                            </tr>
+                            <tr class="bg-surface/20">
+                                <td class="p-6 text-text-primary">Local Business Understanding</td>
+                                <td class="p-6 text-center">
+                                    <svg class="w-6 h-6 text-success mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                </td>
+                                <td class="p-6 text-center">
+                                    <svg class="w-6 h-6 text-warning mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                                    </svg>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-6 text-text-primary">7-14 Day Delivery</td>
+                                <td class="p-6 text-center">
+                                    <svg class="w-6 h-6 text-success mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                </td>
+                                <td class="p-6 text-center">
+                                    <span class="text-text-secondary text-sm">30-60 Days</span>
+                                </td>
+                            </tr>
+                            <tr class="bg-surface/20">
+                                <td class="p-6 text-text-primary">24/7 Local Support</td>
+                                <td class="p-6 text-center">
+                                    <svg class="w-6 h-6 text-success mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                </td>
+                                <td class="p-6 text-center">
+                                    <svg class="w-6 h-6 text-warning mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                                    </svg>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-6 text-text-primary">Custom Feature Development</td>
+                                <td class="p-6 text-center">
+                                    <svg class="w-6 h-6 text-success mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                </td>
+                                <td class="p-6 text-center">
+                                    <span class="text-text-secondary text-sm">Extra Cost</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator Section -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-accent/5 via-transparent to-accent/5"></div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+                    <span class="text-text-primary">Calculate Your</span><br />
+                    <span class="text-gradient">Return on Investment</span>
+                </h2>
+                <p class="text-xl text-text-secondary">
+                    See how much you can save and earn with our custom solutions
+                </p>
+            </div>
+
+            <div class="card-glass rounded-2xl p-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Calculator Form -->
+                    <div>
+                        <h3 class="font-semibold text-text-primary mb-6">Business Details</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-text-secondary text-sm mb-2">Business Type</label>
+                                <select id="businessType" class="w-full bg-surface/50 border border-glass-border rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-accent">
+                                    <option value="gym">Gym Management</option>
+                                    <option value="coaching">Coaching Center</option>
+                                    <option value="photography">Photography Studio</option>
+                                    <option value="website">Website Development</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-text-secondary text-sm mb-2">Monthly Revenue (₹)</label>
+                                <input type="number" id="monthlyRevenue" placeholder="1,50,000" class="w-full bg-surface/50 border border-glass-border rounded-lg px-4 py-3 text-text-primary placeholder-text-muted focus:outline-none focus:border-accent" />
+                            </div>
+                            <div>
+                                <label class="block text-text-secondary text-sm mb-2">Current Manual Hours/Day</label>
+                                <input type="number" id="manualHours" placeholder="6" class="w-full bg-surface/50 border border-glass-border rounded-lg px-4 py-3 text-text-primary placeholder-text-muted focus:outline-none focus:border-accent" />
+                            </div>
+                            <button onclick="calculateROI()" class="btn-primary w-full py-3 glow-accent">
+                                Calculate ROI
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Results -->
+                    <div id="roiResults" class="hidden">
+                        <h3 class="font-semibold text-text-primary mb-6">Your ROI Analysis</h3>
+                        <div class="space-y-4">
+                            <div class="bg-surface/50 rounded-lg p-4">
+                                <div class="text-text-secondary text-sm mb-1">Time Saved Per Month</div>
+                                <div class="text-2xl font-bold text-accent" id="timeSaved">120 Hours</div>
+                            </div>
+                            <div class="bg-surface/50 rounded-lg p-4">
+                                <div class="text-text-secondary text-sm mb-1">Cost Savings Per Month</div>
+                                <div class="text-2xl font-bold text-success" id="costSavings">₹24,000</div>
+                            </div>
+                            <div class="bg-surface/50 rounded-lg p-4">
+                                <div class="text-text-secondary text-sm mb-1">Revenue Increase Potential</div>
+                                <div class="text-2xl font-bold text-warning" id="revenueIncrease">₹45,000</div>
+                            </div>
+                            <div class="bg-gradient-to-r from-accent/10 to-accent/5 rounded-lg p-4 border border-accent/20">
+                                <div class="text-text-secondary text-sm mb-1">ROI Payback Period</div>
+                                <div class="text-2xl font-bold text-gradient" id="paybackPeriod">2.3 Months</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Default Message -->
+                    <div id="defaultMessage" class="flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                                </svg>
+                            </div>
+                            <p class="text-text-secondary">Enter your business details to see your personalized ROI analysis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+                <span class="text-text-primary">Ready to Transform</span><br />
+                <span class="text-gradient">Your Business Operations?</span>
+            </h2>
+            <p class="text-xl text-text-secondary mb-8 max-w-2xl mx-auto">
+                Join 50+ successful Bengali businesses who have revolutionized their operations with our specialized solutions
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact_hub.html" class="btn-primary text-lg px-8 py-4 glow-accent">
+                    Start Your Project Today
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-surface/50 border-t border-glass-border py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-accent to-accent-300 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-primary font-bold" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 9.95 9 11 5.16-1.05 9-5.45 9-11V7l-10-5z"/>
+                            </svg>
+                        </div>
+                        <span class="font-display text-2xl font-bold text-gradient">DDK TECH</span>
+                    </div>
+                    <p class="text-text-secondary mb-6 max-w-md">
+                        West Bengal's premier custom business app developer, transforming local businesses through cutting-edge technology and innovative solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/DdkTechOfficial" target="_blank" class="w-10 h-10 bg-surface rounded-lg flex items-center justify-center hover:bg-accent hover:text-primary transition-smooth" title="Follow us on Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold text-text-primary mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="services_showcase.html" class="text-text-secondary hover:text-accent transition-smooth">Services</a></li>
+                        <li><a href="about_experience.html" class="text-text-secondary hover:text-accent transition-smooth">About Us</a></li>
+                        <li><a href="technology_center.html" class="text-text-secondary hover:text-accent transition-smooth">Technology</a></li>
+                        <li><a href="contact_hub.html" class="text-text-secondary hover:text-accent transition-smooth">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="font-semibold text-text-primary mb-4">Get in Touch</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center space-x-3">
+                            <div class="w-5 h-5 text-accent">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
+                </div>
+                            <span class="text-text-secondary">Kolkata, West Bengal</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <div class="w-5 h-5 text-accent">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+            </svg>
+    </div>
+                            <a href="https://wa.me/918820746227" class="text-text-secondary hover:text-accent transition-smooth">WhatsApp: +91-8820746227</a>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <div class="w-5 h-5 text-accent">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </div>
+                            <a href="mailto:support@ddktechofficial.info" class="text-text-secondary hover:text-accent transition-smooth">support@ddktechofficial.info</a>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <div class="w-5 h-5 text-accent">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+            </div>
+                            <a href="https://www.facebook.com/DdkTechOfficial" target="_blank" class="text-text-secondary hover:text-accent transition-smooth">Follow us on Facebook</a>
+                        </li>
+                    </ul>
+        </div>
+                </div>
+
+            <div class="border-t border-glass-border mt-12 pt-8 text-center">
+                <p class="text-text-secondary">© 2025 DDK TECH. All Rights Reserved. | Custom Business Apps for West Bengal</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+        // Particle Animation
+        function initParticles() {
+            const canvas = document.getElementById('particleCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const particles = [];
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.3,
+                    vy: (Math.random() - 0.5) * 0.3,
+                    size: Math.random() * 2 + 1
+                });
+            }
+            
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+                    
+                    if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+                    if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+                    
+                    ctx.beginPath();
+                    ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(0, 212, 255, 0.2)';
+                    ctx.fill();
+                });
+                
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+        }
+
+        // GSAP Animations
+        function initAnimations() {
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Hero animation
+            gsap.to('.hero-content', {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+            
+            // Service sections animation
+            gsap.from('.gym-content', {
+                scrollTrigger: '.gym-content',
+                x: -50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+            
+            gsap.from('.gym-demo', {
+                scrollTrigger: '.gym-demo',
+                x: 50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+            
+            gsap.from('.coaching-content', {
+                scrollTrigger: '.coaching-content',
+                x: 50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+            
+            gsap.from('.coaching-demo', {
+                scrollTrigger: '.coaching-demo',
+                x: -50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+            
+            gsap.from('.photography-content', {
+                scrollTrigger: '.photography-content',
+                x: -50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+            
+            gsap.from('.photography-demo', {
+                scrollTrigger: '.photography-demo',
+                x: 50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+            
+            // Feature cards animation
+            gsap.from('.feature-card', {
+                scrollTrigger: '.feature-card',
+                scale: 0.9,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'back.out(1.7)'
+            });
+        }
+
+        // Smooth scrolling to sections
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Mobile menu toggle
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+
+        // ROI Calculator
+        function openROICalculator(serviceType) {
+            document.getElementById('businessType').value = serviceType;
+            document.querySelector('#businessType').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        function calculateROI() {
+            const businessType = document.getElementById('businessType').value;
+            const monthlyRevenue = parseInt(document.getElementById('monthlyRevenue').value) || 0;
+            const manualHours = parseInt(document.getElementById('manualHours').value) || 0;
+            
+            if (monthlyRevenue === 0 || manualHours === 0) {
+                alert('Please enter valid values for monthly revenue and manual hours.');
+                return;
+            }
+            
+            // ROI calculations based on business type
+            let timeSaved, costSavings, revenueIncrease, paybackPeriod;
+            
+            switch(businessType) {
+                case 'gym':
+                    timeSaved = manualHours * 20; // 20 working days
+                    costSavings = timeSaved * 200; // ₹200 per hour saved
+                    revenueIncrease = monthlyRevenue * 0.3; // 30% increase
+                    paybackPeriod = 55000 / (costSavings + revenueIncrease); // Average gym solution cost
+                    break;
+                case 'coaching':
+                    timeSaved = manualHours * 18;
+                    costSavings = timeSaved * 200;
+                    revenueIncrease = monthlyRevenue * 0.35;
+                    paybackPeriod = 35000 / (costSavings + revenueIncrease);
+                    break;
+                case 'photography':
+                    timeSaved = manualHours * 18;
+                    costSavings = timeSaved * 300;
+                    revenueIncrease = monthlyRevenue * 0.4;
+                    paybackPeriod = 75000 / (costSavings + revenueIncrease);
+                    break;
+                case 'website':
+                    timeSaved = manualHours * 15;
+                    costSavings = timeSaved * 200;
+                    revenueIncrease = monthlyRevenue * 0.35;
+                    paybackPeriod = 45000 / (costSavings + revenueIncrease);
+                    break;
+            }
+            
+            // Update results
+            document.getElementById('timeSaved').textContent = `${timeSaved} Hours`;
+            document.getElementById('costSavings').textContent = `₹${costSavings.toLocaleString()}`;
+            document.getElementById('revenueIncrease').textContent = `₹${revenueIncrease.toLocaleString()}`;
+            document.getElementById('paybackPeriod').textContent = `${paybackPeriod.toFixed(1)} Months`;
+            
+            // Show results
+            document.getElementById('defaultMessage').classList.add('hidden');
+            document.getElementById('roiResults').classList.remove('hidden');
+        }
+
+        // Navbar scroll effect
+        function initNavbarScroll() {
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('backdrop-blur-glass');
+                } else {
+                    navbar.classList.remove('backdrop-blur-glass');
+                }
+            });
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            initParticles();
+            initAnimations();
+            initMobileMenu();
+            initNavbarScroll();
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const canvas = document.getElementById('particleCanvas');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

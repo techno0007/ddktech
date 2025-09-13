@@ -1,0 +1,38 @@
+RewriteEngine On
+
+# Redirect root to secure homepage
+RewriteRule ^$ /nhghggfdt7689376nc6778 [R=302,L]
+
+# URL Mapping - Random URLs to actual pages
+RewriteRule ^nhghggfdt7689376nc6778$ /pages/homepage.html [L]
+RewriteRule ^x9y8z7a6b5c4d3e2f1g0h$ /pages/homepage.html [L]
+RewriteRule ^k7j8h9g0f1d2s3a4q5w6e$ /pages/homepage.html [L]
+
+RewriteRule ^k9m8n7b6v5c4x3z2a1s0d$ /pages/services_showcase.html [L]
+RewriteRule ^p0o9i8u7y6t5r4e3w2q1a$ /pages/services_showcase.html [L]
+RewriteRule ^m3n4b5v6c7x8z9a0s1d2f$ /pages/services_showcase.html [L]
+
+RewriteRule ^q7w8e9r0t1y2u3i4o5p6a$ /pages/about_experience.html [L]
+RewriteRule ^s2d3f4g5h6j7k8l9z0x1c$ /pages/about_experience.html [L]
+RewriteRule ^a5s6d7f8g9h0j1k2l3z4x$ /pages/about_experience.html [L]
+
+RewriteRule ^z1x2c3v4b5n6m7k8j9h0g$ /pages/technology_center.html [L]
+RewriteRule ^v4b5n6m7k8j9h0g1f2d3s$ /pages/technology_center.html [L]
+RewriteRule ^c9v8b7n6m5k4j3h2g1f0d$ /pages/technology_center.html [L]
+
+RewriteRule ^f5d6s7a8g9h0j1k2l3z4x$ /pages/portfolio_gallery.html [L]
+RewriteRule ^a7s8d9f0g1h2j3k4l5z6x$ /pages/portfolio_gallery.html [L]
+RewriteRule ^z5x4c3v2b1n0m9k8j7h6g$ /pages/portfolio_gallery.html [L]
+
+RewriteRule ^p1o2i3u4y5t6r7e8w9q0a$ /pages/contact_hub.html [L]
+RewriteRule ^q9w8e7r6t5y4u3i2o1p0a$ /pages/contact_hub.html [L]
+RewriteRule ^w2e3r4t5y6u7i8o9p0a1s$ /pages/contact_hub.html [L]
+
+# Block direct access to pages directory
+RewriteRule ^pages/.*$ /nhghggfdt7689376nc6778 [R=302,L]
+
+# Security headers
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-XSS-Protection "1; mode=block"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"

@@ -1,0 +1,551 @@
+/* Futuristic Computer Supervision Eye */
+.futuristic-eye-container {
+    position: relative !important;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 40px auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+/* Ensure eye is visible on both desktop and mobile */
+@media (min-width: 769px) {
+    .futuristic-eye-container {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .futuristic-eye-container {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+.futuristic-eye-container:hover {
+    transform: scale(1.1);
+}
+
+.futuristic-eye {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #1a1a2e, #16213e, #0f0f23);
+    border: 2px solid #00d4ff;
+    box-shadow: 
+        0 0 20px rgba(0, 212, 255, 0.5),
+        inset 0 0 20px rgba(0, 212, 255, 0.1);
+    overflow: hidden;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Eye Structure */
+.eye-iris {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #4a90e2, #2c5aa0, #1e3a8a);
+    border: 2px solid rgba(0, 212, 255, 0.3);
+}
+
+.eye-pupil {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #000000, #1a1a1a);
+    border: 2px solid #00d4ff;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
+}
+
+/* HUD Interface Overlay */
+.eye-hud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.hud-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 130px;
+    height: 130px;
+    border: 3px solid rgba(0, 212, 255, 0.6);
+    border-radius: 50%;
+    border-top-color: #00d4ff;
+    animation: hud-rotate 3s linear infinite;
+}
+
+.hud-ring::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 50%;
+    animation: hud-rotate 4s linear infinite reverse;
+}
+
+/* Progress Indicator */
+.progress-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, #00d4ff 0deg, #00d4ff 162deg, rgba(0, 212, 255, 0.2) 162deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #00d4ff;
+    text-shadow: 0 0 8px rgba(0, 212, 255, 0.8);
+    animation: progress-pulse 2s ease-in-out infinite;
+}
+
+/* Scan Line */
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, #00d4ff, transparent);
+    animation: scan-sweep 2s linear infinite;
+    box-shadow: 0 0 10px #00d4ff;
+}
+
+/* Data Streams */
+.data-streams {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.data-stream {
+    position: absolute;
+    background: linear-gradient(45deg, transparent, #00d4ff, transparent);
+    opacity: 0.6;
+    animation: data-flow 3s linear infinite;
+}
+
+.data-stream:nth-child(1) {
+    top: 10%;
+    left: 20%;
+    width: 1px;
+    height: 30px;
+    animation-delay: 0s;
+}
+
+.data-stream:nth-child(2) {
+    top: 30%;
+    right: 15%;
+    width: 1px;
+    height: 25px;
+    animation-delay: 0.5s;
+}
+
+.data-stream:nth-child(3) {
+    bottom: 20%;
+    left: 30%;
+    width: 1px;
+    height: 20px;
+    animation-delay: 1s;
+}
+
+.data-stream:nth-child(4) {
+    bottom: 10%;
+    right: 25%;
+    width: 1px;
+    height: 35px;
+    animation-delay: 1.5s;
+}
+
+/* Binary Code Overlay */
+.binary-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.binary-text {
+    position: absolute;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: rgba(0, 212, 255, 0.6);
+    white-space: nowrap;
+    animation: binary-scroll 4s linear infinite;
+}
+
+.binary-text:nth-child(1) {
+    top: 15%;
+    left: -100%;
+    animation-delay: 0s;
+}
+
+.binary-text:nth-child(2) {
+    top: 35%;
+    right: -100%;
+    animation-delay: 1s;
+}
+
+.binary-text:nth-child(3) {
+    bottom: 25%;
+    left: -100%;
+    animation-delay: 2s;
+}
+
+.binary-text:nth-child(4) {
+    bottom: 10%;
+    right: -100%;
+    animation-delay: 3s;
+}
+
+/* Status Indicators */
+.status-indicators {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00d4ff;
+    box-shadow: 0 0 5px rgba(0, 212, 255, 0.8);
+    animation: status-blink 1.5s ease-in-out infinite;
+}
+
+.status-indicator:nth-child(1) { animation-delay: 0s; }
+.status-indicator:nth-child(2) { animation-delay: 0.3s; }
+.status-indicator:nth-child(3) { animation-delay: 0.6s; }
+
+/* Compass Arrow */
+.compass-arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2px;
+    height: 60px;
+    background: linear-gradient(to top, #00d4ff, transparent);
+    z-index: 10;
+    pointer-events: none;
+    transition: transform 0.1s ease-out;
+}
+
+.compass-arrow::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -4px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #00d4ff;
+    filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.8));
+}
+
+.compass-arrow::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: -4px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid rgba(0, 212, 255, 0.3);
+}
+
+/* Compass Ring */
+.compass-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140px;
+    height: 140px;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 50%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.compass-ring::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    border-radius: 50%;
+}
+
+/* Compass Markers */
+.compass-markers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.compass-marker {
+    position: absolute;
+    width: 2px;
+    height: 8px;
+    background: rgba(0, 212, 255, 0.6);
+    transform-origin: 0 70px;
+}
+
+.compass-marker:nth-child(1) { transform: rotate(0deg); }
+.compass-marker:nth-child(2) { transform: rotate(30deg); }
+.compass-marker:nth-child(3) { transform: rotate(60deg); }
+.compass-marker:nth-child(4) { transform: rotate(90deg); }
+.compass-marker:nth-child(5) { transform: rotate(120deg); }
+.compass-marker:nth-child(6) { transform: rotate(150deg); }
+.compass-marker:nth-child(7) { transform: rotate(180deg); }
+.compass-marker:nth-child(8) { transform: rotate(210deg); }
+.compass-marker:nth-child(9) { transform: rotate(240deg); }
+.compass-marker:nth-child(10) { transform: rotate(270deg); }
+.compass-marker:nth-child(11) { transform: rotate(300deg); }
+.compass-marker:nth-child(12) { transform: rotate(330deg); }
+
+/* Neural Network Pattern */
+.neural-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.neural-node {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #00d4ff;
+    border-radius: 50%;
+    box-shadow: 0 0 3px #00d4ff;
+}
+
+.neural-connection {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+    opacity: 0.6;
+    animation: neural-pulse 2s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes hud-rotate {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes progress-pulse {
+    0%, 100% { 
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    50% { 
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes scan-sweep {
+    0% { 
+        top: 0;
+        opacity: 0;
+    }
+    50% { 
+        opacity: 1;
+    }
+    100% { 
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes data-flow {
+    0% { 
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    50% { 
+        opacity: 1;
+    }
+    100% { 
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+@keyframes binary-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(200px); }
+}
+
+@keyframes status-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+@keyframes neural-pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+/* Interactive States */
+.futuristic-eye-container.active .eye-pupil {
+    animation: pupil-dilate 0.5s ease-in-out;
+}
+
+.futuristic-eye-container.scanning .scan-line {
+    animation: scan-sweep 1s linear infinite;
+}
+
+.futuristic-eye-container.alert .eye-pupil {
+    background: radial-gradient(circle, #ff0000, #cc0000);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}
+
+.futuristic-eye-container.alert .progress-indicator {
+    background: conic-gradient(from 0deg, #ff0000 0deg, #ff0000 360deg);
+    color: #ff0000;
+}
+
+@keyframes pupil-dilate {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.2); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .futuristic-eye-container {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 30px auto;
+    }
+    
+    .eye-iris {
+        width: 75px;
+        height: 75px;
+    }
+    
+    .eye-pupil {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .hud-ring {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .progress-indicator {
+        width: 50px;
+        height: 50px;
+        font-size: 10px;
+    }
+    
+    .binary-text {
+        font-size: 8px;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .futuristic-eye-container {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 20px auto;
+    }
+    
+    .eye-iris {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .eye-pupil {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .hud-ring {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .progress-indicator {
+        width: 40px;
+        height: 40px;
+        font-size: 8px;
+    }
+    
+    .binary-text {
+        font-size: 6px;
+    }
+}
+
+/* Dark Mode Enhancement */
+@media (prefers-color-scheme: dark) {
+    .futuristic-eye {
+        background: radial-gradient(circle at 30% 30%, #0a0a0a, #1a1a1a, #000000);
+        border-color: #00ffff;
+        box-shadow: 
+            0 0 25px rgba(0, 255, 255, 0.6),
+            inset 0 0 25px rgba(0, 255, 255, 0.1);
+    }
+    
+    .eye-iris {
+        background: radial-gradient(circle at 30% 30%, #00ffff, #0080ff, #0040ff);
+    }
+}

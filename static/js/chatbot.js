@@ -1,4 +1,4 @@
-// DDK-i Chatbot JavaScript
+// DDK- Chatbot JavaScript
 class DDKChatbot {
     constructor() {
         this.currentLanguage = 'en';
@@ -11,8 +11,8 @@ class DDKChatbot {
         
         this.texts = {
             en: {
-                welcome: "Hello! I'm DDK-i, your digital assistant from DDK TECH. I'm here to help you with information about our custom business app development services. How can I assist you today?",
-                question: "Are you an existing DDK TECH client?",
+                welcome: "Hello! I'm DDK-, your digital assistant. I'm here to help you with information about our custom business web app & website development services. How can I assist you today?",
+                question: "Are you an existing client?",
                 clientIdLabel: "Please enter your Client ID:",
                 clientIdPlaceholder: "e.g., DDK001",
                 nameLabel: "Please enter your name:",
@@ -29,8 +29,8 @@ class DDKChatbot {
                 contactPrompt: "Would you like to speak with our support team? <i class='ri-whatsapp-line'></i> WhatsApp us at +91-8820746227 or email ddktech.manager@gmail.com"
             },
             bn: {
-                welcome: "নমস্কার! আমি ডিডিকে-আই, ডিডিকে টেকের আপনার ডিজিটাল সহায়ক। আমি আমাদের কাস্টম বিজনেস অ্যাপ ডেভেলপমেন্ট সেবা সম্পর্কে তথ্য দিতে এখানে আছি। আজ আমি আপনাকে কীভাবে সাহায্য করতে পারি?",
-                question: "আপনি কি ডিডিকে টেকের একজন বিদ্যমান ক্লায়েন্ট?",
+                welcome: "নমস্কার! আমি ডিডিকে-, আপনার ডিজিটাল সহায়ক। আমি আমাদের কাস্টম বিজনেস অ্যাপ ডেভেলপমেন্ট সেবা সম্পর্কে তথ্য দিতে এখানে আছি। আজ আমি আপনাকে কীভাবে সাহায্য করতে পারি?",
+                question: "আপনি কি একজন বিদ্যমান ক্লায়েন্ট?",
                 clientIdLabel: "অনুগ্রহ করে আপনার ক্লায়েন্ট আইডি লিখুন:",
                 clientIdPlaceholder: "যেমন, DDK001",
                 nameLabel: "অনুগ্রহ করে আপনার নাম লিখুন:",
@@ -58,10 +58,25 @@ class DDKChatbot {
     }
 
     bindEvents() {
-        // Chat button click
-        document.getElementById('chatButton').addEventListener('click', () => {
-            this.toggleChat();
-        });
+        // Chat button click - using chatButton with mobile support
+        const chatButton = document.getElementById('chatButton');
+        if (chatButton) {
+            // Add both click and touch events for mobile compatibility
+            chatButton.addEventListener('click', (e) => {
+                console.log('Chat button clicked'); // Debug log
+                e.preventDefault();
+                e.stopPropagation();
+                this.toggleChat();
+            });
+            
+            // Add touch event for better mobile support
+            chatButton.addEventListener('touchend', (e) => {
+                console.log('Chat button touched'); // Debug log
+                e.preventDefault();
+                e.stopPropagation();
+                this.toggleChat();
+            });
+        }
 
         // Minimize button
         document.getElementById('minimizeBtn').addEventListener('click', () => {
@@ -170,17 +185,22 @@ class DDKChatbot {
     }
 
     toggleChat() {
+        console.log('toggleChat called, current state:', this.isOpen); // Debug log
         const chatWindow = document.getElementById('chatWindow');
         const chatButton = document.getElementById('chatButton');
         
+        console.log('Elements found:', { chatWindow: !!chatWindow, chatButton: !!chatButton }); // Debug log
+        
         if (this.isOpen) {
             chatWindow.classList.remove('active');
-            chatButton.style.display = 'flex';
+            if (chatButton) chatButton.style.display = 'flex';
             this.isOpen = false;
+            console.log('Chat closed'); // Debug log
         } else {
             chatWindow.classList.add('active');
-            chatButton.style.display = 'none';
+            if (chatButton) chatButton.style.display = 'none';
             this.isOpen = true;
+            console.log('Chat opened'); // Debug log
             
             // Focus on current input if available
             this.focusCurrentInput();

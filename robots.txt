@@ -2,23 +2,24 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://ddktech.com/sitemap.xml
+Sitemap: https://ddktechofficial.github.io/ddk-tech-website/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
 
-# Disallow any admin or private areas (if any)
+# Disallow admin and private directories
 Disallow: /admin/
 Disallow: /private/
 Disallow: /temp/
+Disallow: /.git/
+Disallow: /node_modules/
 
-# Allow important files
-Allow: /*.html
-Allow: /*.css
-Allow: /*.js
-Allow: /*.png
-Allow: /*.jpg
-Allow: /*.jpeg
-Allow: /*.gif
-Allow: /*.svg
-Allow: /*.ico
+# Allow all CSS and JS files
+Allow: /css/
+Allow: /js/
+Allow: /public/
+Allow: /static/
+
+# Allow all pages
+Allow: /pages/
+Allow: /index.html
